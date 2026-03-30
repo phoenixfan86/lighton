@@ -7,68 +7,6 @@
   "intro": "Зарядні станції (Power Station) — мобільні акумулятори з виходами 220 В. Ідеальні для відключень світла, кемпінгу та роботи вдома.",
   "items": [
     {
-      "slug": "ecoflow-delta-2",
-      "brand": "EcoFlow",
-      "model": "DELTA 2",
-      "image": "https://m.media-amazon.com/images/I/71E7Xia8s7L._AC_SL1500_.jpg",
-      "priceUAH": 32000,
-      "rating": 4.8,
-      "description": "EcoFlow DELTA 2 — 1024 Вт·год, заряджається до 80% за 50 хвилин. Підтримка сонячних панелей.",
-      "capacityWh": 1024,
-      "capacityAh": 0,
-      "acOutputW": 1800,
-      "usbPorts": 6,
-      "solarInputW": 500,
-      "chargingTimeH": 1.2,
-      "buyLinks": [
-        {
-          "name": "EcoFlow UA",
-          "url": "https://ecoflow.com/uk"
-        },
-        {
-          "name": "Rozetka",
-          "url": "https://rozetka.com.ua/search/?text=EcoFlow+DELTA+2"
-        }
-      ],
-      "repairLinks": [
-        {
-          "name": "EcoFlow сервіс",
-          "url": "https://ecoflow.com/uk/pages/service"
-        }
-      ]
-    },
-    {
-      "slug": "bluetti-ac200p",
-      "brand": "Bluetti",
-      "model": "AC200P",
-      "image": "https://m.media-amazon.com/images/I/71C-CJ3AlEL._AC_SL1500_.jpg",
-      "priceUAH": 45000,
-      "rating": 4.7,
-      "description": "Bluetti AC200P — 2000 Вт·год, 17 портів виходу, підходить для тривалих відключень.",
-      "capacityWh": 2000,
-      "capacityAh": 0,
-      "acOutputW": 2000,
-      "usbPorts": 4,
-      "solarInputW": 700,
-      "chargingTimeH": 2.5,
-      "buyLinks": [
-        {
-          "name": "Bluetti UA",
-          "url": "https://bluettipower.ua"
-        },
-        {
-          "name": "Rozetka",
-          "url": "https://rozetka.com.ua/search/?text=Bluetti+AC200P"
-        }
-      ],
-      "repairLinks": [
-        {
-          "name": "Bluetti сервіс",
-          "url": "https://bluettipower.ua/service"
-        }
-      ]
-    },
-    {
       "slug": "bluetti-ac180p",
       "brand": "BLUETTI",
       "model": "Зарядна станція BLUETTI AC180P",
