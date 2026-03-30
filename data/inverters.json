@@ -1,0 +1,91 @@
+{
+  "category": "inverters",
+  "categoryLabel": "Інвертори",
+  "metaTitle": "Каталог інверторів — ціни та характеристики | LightOn",
+  "metaDescription": "Порівняйте інвертори для дому та авто: чиста синусоїда, ДБЖ, сонячні інвертори. Характеристики, ціни, де купити в Україні.",
+  "h1": "Каталог інверторів",
+  "intro": "Інвертор перетворює постійний струм акумулятора або сонячних панелей у змінний струм 220 В. Оберіть модель за потужністю та типом хвилі.",
+  "items": [
+    {
+      "slug": "must-ph18-3024-plus",
+      "brand": "Must",
+      "model": "PH18-3024 Plus",
+      "image": "https://must-power.com/wp-content/uploads/2021/09/PH18-3024.jpg",
+      "priceUAH": 12500,
+      "rating": 4.5,
+      "description": "Гібридний інвертор Must 3 кВт з чистою синусоїдою та вбудованим контролером заряду.",
+      "powerW": 3000,
+      "inputVoltage": "24V DC",
+      "outputVoltage": "230V AC",
+      "waveform": "чиста синусоїда",
+      "efficiency": 93,
+      "buyLinks": [
+        {
+          "name": "Rozetka",
+          "url": "https://rozetka.com.ua/search/?text=Must+PH18-3024"
+        },
+        {
+          "name": "Prom.ua",
+          "url": "https://prom.ua/Invertory?search_term=Must+PH18"
+        }
+      ],
+      "repairLinks": [
+        {
+          "name": "Must сервіс Україна",
+          "url": "https://must-power.ua/service"
+        }
+      ]
+    },
+    {
+      "slug": "luxeon-lap-500sp",
+      "brand": "Luxeon",
+      "model": "LAP-500SP",
+      "image": "https://content.rozetka.com.ua/goods/images/big/358900000.jpg",
+      "priceUAH": 3200,
+      "rating": 4.2,
+      "description": "Автомобільний інвертор Luxeon 500 Вт з чистою синусоїдою від прикурювача.",
+      "powerW": 500,
+      "inputVoltage": "12V DC",
+      "outputVoltage": "230V AC",
+      "waveform": "чиста синусоїда",
+      "efficiency": 88,
+      "buyLinks": [
+        {
+          "name": "Rozetka",
+          "url": "https://rozetka.com.ua/search/?text=Luxeon+LAP-500SP"
+        }
+      ],
+      "repairLinks": []
+    },
+    {
+      "slug": "deye-sun-5k-sg04lp3",
+      "brand": "Deye",
+      "model": "SUN-5K-SG04LP3",
+      "image": "https://deye.com/wp-content/uploads/2022/10/5KW.jpg",
+      "priceUAH": 58000,
+      "rating": 4.7,
+      "description": "Сонячний гібридний інвертор Deye 5 кВт з підтримкою LiFePO4 та мережевої роботи.",
+      "powerW": 5000,
+      "inputVoltage": "48V DC",
+      "outputVoltage": "230V AC",
+      "waveform": "чиста синусоїда",
+      "efficiency": 97,
+      "buyLinks": [
+        {
+          "name": "Rozetka",
+          "url": "https://rozetka.com.ua/search/?text=Deye+SUN-5K"
+        },
+        {
+          "name": "SolarTown",
+          "url": "https://solartown.com.ua/search?q=Deye"
+        }
+      ],
+      "repairLinks": [
+        {
+          "name": "Deye Україна",
+          "url": "https://deye.com.ua/service"
+        }
+      ]
+    }
+  ]
+}

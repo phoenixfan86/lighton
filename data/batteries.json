@@ -1,0 +1,81 @@
+{
+  "category": "batteries",
+  "categoryLabel": "Акумулятори (АКБ)",
+  "metaTitle": "Каталог акумуляторів АКБ — ціни та характеристики | LightOn",
+  "metaDescription": "Порівняйте AGM, GEL та LiFePO4 акумулятори для ДБЖ, сонячних систем та авто. Ціни в Україні, характеристики 2026.",
+  "h1": "Каталог акумуляторних батарей (АКБ)",
+  "intro": "Акумулятор — серце резервної системи живлення. Оберіть між AGM, GEL або LiFePO4 залежно від бюджету та кількості циклів.",
+  "items": [
+    {
+      "slug": "litime-12v-100ah-lifepo4",
+      "brand": "LiTime",
+      "model": "12V 100Ah LiFePO4",
+      "image": "https://m.media-amazon.com/images/I/71nNlVBkWML._AC_SL1500_.jpg",
+      "priceUAH": 14500,
+      "rating": 4.7,
+      "description": "Літієвий акумулятор LiTime LiFePO4 100 Аг — 4000+ циклів, вбудована BMS, легка вага.",
+      "capacityAh": 100,
+      "voltageV": 12,
+      "chemistry": "LiFePO4",
+      "cyclesCount": 4000,
+      "weightKg": 10.2,
+      "buyLinks": [
+        {
+          "name": "Amazon",
+          "url": "https://www.amazon.com/s?k=LiTime+100ah+LiFePO4"
+        },
+        {
+          "name": "Prom.ua",
+          "url": "https://prom.ua/Akkumulyatory?search_term=LiFePO4+100ah"
+        }
+      ],
+      "repairLinks": []
+    },
+    {
+      "slug": "logicpower-agm-100ah",
+      "brand": "LogicPower",
+      "model": "AGM 100Ah 12V",
+      "image": "https://content.rozetka.com.ua/goods/images/big/309000000.jpg",
+      "priceUAH": 4800,
+      "rating": 4.3,
+      "description": "AGM акумулятор LogicPower 100 Аг — надійний і доступний для ДБЖ та резервних систем.",
+      "capacityAh": 100,
+      "voltageV": 12,
+      "chemistry": "AGM",
+      "cyclesCount": 500,
+      "weightKg": 28.5,
+      "buyLinks": [
+        {
+          "name": "Rozetka",
+          "url": "https://rozetka.com.ua/search/?text=LogicPower+AGM+100"
+        }
+      ],
+      "repairLinks": []
+    },
+    {
+      "slug": "fiamm-fg21202-gel",
+      "brand": "FIAMM",
+      "model": "FG21202 GEL 12V 120Ah",
+      "image": "https://m.media-amazon.com/images/I/61nqH4KVDTL._AC_SL1000_.jpg",
+      "priceUAH": 8900,
+      "rating": 4.5,
+      "description": "GEL акумулятор FIAMM 120 Аг — підходить для глибокого циклу та сонячних систем.",
+      "capacityAh": 120,
+      "voltageV": 12,
+      "chemistry": "GEL",
+      "cyclesCount": 800,
+      "weightKg": 34,
+      "buyLinks": [
+        {
+          "name": "Rozetka",
+          "url": "https://rozetka.com.ua/search/?text=FIAMM+GEL+120"
+        },
+        {
+          "name": "Prom.ua",
+          "url": "https://prom.ua/Akkumulyatory?search_term=FIAMM+GEL"
+        }
+      ],
+      "repairLinks": []
+    }
+  ]
+}

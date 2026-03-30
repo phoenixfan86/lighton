@@ -1,0 +1,354 @@
+{
+  "category": "generators",
+  "categoryLabel": "Генератори",
+  "metaTitle": "Каталог генераторів — ціни, характеристики, відгуки | LightOn",
+  "metaDescription": "Порівняйте бензинові, дизельні та газові генератори від Honda, Kipor, Vitals. Характеристики, ціни в Україні, де купити та де відремонтувати.",
+  "h1": "Каталог генераторів",
+  "intro": "Вибір генератора — відповідальне рішення для дому чи бізнесу. У цьому каталозі зібрані популярні моделі з детальними характеристиками та цінами в Україні.",
+  "items": [
+    {
+      "slug": "konnersohnen-ks-3300i",
+      "brand": "Konner&Sohnen",
+      "model": "Інверторний бензиновий генератор Konner&Sohnen KS 3300i",
+      "image": "https://hotline.ua/img/tx/365/3658020115.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/365/3658020115.jpg",
+        "https://hotline.ua/img/tx/365/3658020125.jpg",
+        "https://hotline.ua/img/tx/365/3658020135.jpg"
+      ],
+      "priceUAH": 19999,
+      "rating": 0,
+      "description": "Konner&Sohnen KS 3300i - це інверторний генератор з номінальною потужністю 3 кВт, призначений для роботи в умовах, що вимагають стабільної та чистої електрики. Він ідеально підходить для дачі, кемпінгу, а також в якості резервного джерела живлення для малої побутової техніки, електроінструментів та електронних пристроїв. Модель поєднує в собі компактність, високу ефективність і зручність в експлуатації. З максимальною потужністю 3,3 кВт, Konner&Sohnen KS 3300i здатний забезпечувати стабільну роб",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/dacha_sad-generatory/konnersohnen-ks-3300i/"
+        }
+      ],
+      "repairLinks": [],
+      "powerKW": 3.3,
+      "fuelType": "бензин неетилований",
+      "fuelTankL": 7,
+      "noiseDb": 71,
+      "engineBrand": "4-тактний 1-циліндровий OHV",
+      "startType": "ручний старт",
+      "runtimeH": "-",
+      "weightKg": 25.5
+    },
+    {
+      "slug": "enersol-epg3300io",
+      "brand": "EnerSol",
+      "model": "Інверторний бензиновий генератор EnerSol EPG-3300IO",
+      "image": "https://hotline.ua/img/tx/371/3714242975.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/371/3714242975.jpg",
+        "https://hotline.ua/img/tx/371/3714243025.jpg",
+        "https://hotline.ua/img/tx/371/3714243045.jpg"
+      ],
+      "priceUAH": 23900,
+      "rating": 4,
+      "description": "",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/dacha_sad-generatory/enersol-epg-3300io/"
+        }
+      ],
+      "repairLinks": [],
+      "powerKW": 3.3,
+      "fuelType": "бензин неетилований",
+      "fuelTankL": 7.5,
+      "noiseDb": 75,
+      "engineBrand": "4-х тактний 1-циліндровий OHV",
+      "startType": "ручний старт",
+      "runtimeH": 10,
+      "weightKg": 25
+    },
+    {
+      "slug": "honda-eu22i",
+      "brand": "Honda",
+      "model": "Інверторний бензиновий генератор Honda EU22i",
+      "image": "https://hotline.ua/img/tx/482/4823940855.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/482/4823940855.jpg",
+        "https://hotline.ua/img/tx/368/3685417055.jpg",
+        "https://hotline.ua/img/tx/368/3685417045.jpg"
+      ],
+      "priceUAH": 75200,
+      "rating": 0,
+      "description": "Для вимогливих споживачів чудовою знахідкою серед великого вибору мобільних електростанцій стане Honda EU22i. Конструкторське рішення дозволило створити досить інтенсивний генератор розмірами 512х290х425 мм в якості резервного джерела електроенергії в заміському будиночку, на дачі, під час будівельно-ремонтних робіт або в походах. Якісна та сучасна модель обладнана чотиритактним одноциліндровим двигуном з повітряним охолодженням і максимальною потужністю в 2,2 кВт, який запускається за допомогою",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/dacha_sad-generatory/honda-eu22i/?tab=about"
+        }
+      ],
+      "repairLinks": [],
+      "powerKW": 2.2,
+      "fuelType": "бензин",
+      "fuelTankL": 3.6,
+      "noiseDb": 71,
+      "engineBrand": "4-х тактний 1-циліндровий OHV",
+      "startType": "ручний стартер",
+      "runtimeH": 3.5,
+      "weightKg": 20.7
+    },
+    {
+      "slug": "kipor-kde7000sta",
+      "brand": "Kipor",
+      "model": "Дизельний генератор Kipor KDE7000STA",
+      "image": "https://hotline.ua/img/tx/763/7636235.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/763/7636235.jpg"
+      ],
+      "priceUAH": 81770,
+      "rating": 0,
+      "description": "",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/dacha_sad-generatory/kipor-kde7000sta/?tab=about"
+        }
+      ],
+      "repairLinks": [],
+      "powerKW": 4.6,
+      "fuelType": "дизельне паливо",
+      "fuelTankL": 15,
+      "noiseDb": 66,
+      "engineBrand": "4-х тактний 2-циліндровий",
+      "startType": "електричний старт",
+      "runtimeH": 6,
+      "weightKg": 175
+    },
+    {
+      "slug": "forte-fgd8000e-63491",
+      "brand": "Forte",
+      "model": "Дизельний генератор Forte FGD8000E (63491)",
+      "image": "https://hotline.ua/img/tx/323/3234871785.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/323/3234871785.jpg"
+      ],
+      "priceUAH": 41265,
+      "rating": 0,
+      "description": "",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/dacha_sad-generatory/forte-fgd8000e/"
+        }
+      ],
+      "repairLinks": [],
+      "powerKW": 5.2,
+      "fuelType": "дизельне паливо",
+      "fuelTankL": 15,
+      "noiseDb": 70,
+      "engineBrand": "4-тактний, повітряного охолодження",
+      "startType": "електричний стартер",
+      "runtimeH": 7,
+      "weightKg": 160
+    },
+    {
+      "slug": "forte-fg4050i-148250",
+      "brand": "Forte",
+      "model": "Інверторний бензиновий генератор Forte FG4050i (148250)",
+      "image": "https://hotline.ua/img/tx/545/5450964275.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/545/5450964275.jpg",
+        "https://hotline.ua/img/tx/545/5454602965.jpg",
+        "https://hotline.ua/img/tx/545/5450964285.jpg"
+      ],
+      "priceUAH": 26399,
+      "rating": 0,
+      "description": "",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/dacha_sad-generatory/forte-fg4050i-148250/?tab=about"
+        }
+      ],
+      "repairLinks": [],
+      "powerKW": 3.5,
+      "fuelType": "бензин неетилований",
+      "fuelTankL": 6,
+      "noiseDb": 76,
+      "engineBrand": "4-тактний, 1-циліндровий OHV",
+      "startType": "ручний старт",
+      "runtimeH": "-",
+      "weightKg": 23
+    },
+    {
+      "slug": "maxpeedingrods-mxr4500i",
+      "brand": "MaXpeedingRODS",
+      "model": "Інверторний бензиновий генератор MaXpeedingRODS MXR4500i",
+      "image": "https://hotline.ua/img/tx/382/3829868045.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/382/3829868045.jpg",
+        "https://hotline.ua/img/tx/359/3593619155.jpg",
+        "https://hotline.ua/img/tx/359/3593619145.jpg"
+      ],
+      "priceUAH": 17696,
+      "rating": 0,
+      "description": "Інверторний генератор MaXpeedingRODS MXR4500i призначено для забезпечення резервного електропостачання житлових приміщень і використання в польових умовах за необхідності під'єднання чутливої техніки. Цей пристрій оснащено одноциліндровим чотиритактним бензиновим двигуном об'ємом 223 кубічних сантиметри з системою примусового повітряного охолодження. Номінальна вихідна потужність приладу становить 3,2 кВт, тоді як максимальне пікове навантаження досягає 3,5 кВт, що дає змогу живити побутові прил",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/dacha_sad-generatory/maxpeedingrods-mxr4500i/"
+        }
+      ],
+      "repairLinks": [],
+      "powerKW": 3.5,
+      "fuelType": "бензин неетилований",
+      "fuelTankL": 7.5,
+      "noiseDb": 72,
+      "engineBrand": "4-х тактний 1-циліндровий OHV",
+      "startType": "ручний старт",
+      "runtimeH": 7,
+      "weightKg": 26
+    },
+    {
+      "slug": "konnersohnen-ksb-35i",
+      "brand": "Konner&Sohnen",
+      "model": "Інверторний бензиновий генератор Konner&Sohnen KSB 35i",
+      "image": "https://hotline.ua/img/tx/544/5443066665.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/544/5443066665.jpg",
+        "https://hotline.ua/img/tx/544/5443066675.jpg",
+        "https://hotline.ua/img/tx/544/5443066685.jpg"
+      ],
+      "priceUAH": 18299,
+      "rating": 0,
+      "description": "",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/dacha_sad-generatory/ks-basic-ksb-35i/"
+        }
+      ],
+      "repairLinks": [],
+      "powerKW": 3.5,
+      "fuelType": "бензин неетилований",
+      "fuelTankL": 7.5,
+      "noiseDb": 72,
+      "engineBrand": "4-х тактний 1-циліндровий OHV",
+      "startType": "ручний старт",
+      "runtimeH": 5.5,
+      "weightKg": 26
+    },
+    {
+      "slug": "vitals-master-est-80-bat-158099",
+      "brand": "VITALS",
+      "model": "Бензиновий генератор VITALS Master EST 8.0 bat (158099)",
+      "image": "https://hotline.ua/img/tx/305/3055155835.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/305/3055155835.jpg",
+        "https://hotline.ua/img/tx/305/3055155845.jpg",
+        "https://hotline.ua/img/tx/305/3055155855.jpg"
+      ],
+      "priceUAH": 51028,
+      "rating": 0,
+      "description": "",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/dacha_sad-generatory/vitals-master-est-80-bat-158099/"
+        }
+      ],
+      "repairLinks": [],
+      "powerKW": 8.5,
+      "fuelType": "бензин А92, А95",
+      "fuelTankL": 25,
+      "engineBrand": "4-тактний, 1-циліндровий",
+      "startType": "ручний + електричний (комбі)",
+      "runtimeH": 10,
+      "weightKg": 97,
+      "noiseDb": "-"
+    },
+    {
+      "slug": "briggsstratton-p2400-powersmart-inverter",
+      "brand": "Briggs&Stratton",
+      "model": "Інверторний бензиновий генератор Briggs&Stratton P2400 PowerSmart Inverter",
+      "image": "https://hotline.ua/img/tx/464/4646852465.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/464/4646852465.jpg",
+        "https://hotline.ua/img/tx/323/3238230515.jpg",
+        "https://hotline.ua/img/tx/323/3238230525.jpg"
+      ],
+      "priceUAH": 46857,
+      "rating": 0,
+      "description": "",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/dacha_sad-generatory/briggsstratton-p2400-powersmart-inverter/"
+        }
+      ],
+      "repairLinks": [],
+      "powerKW": 2.4,
+      "fuelType": "бензин неетилований",
+      "fuelTankL": 3.8,
+      "noiseDb": 58,
+      "engineBrand": "4-х тактний 1-циліндровий OHV",
+      "startType": "ручний старт",
+      "runtimeH": 8,
+      "weightKg": 23
+    },
+    {
+      "slug": "maxpeedingrods-mxr3500",
+      "brand": "MaXpeedingRODS",
+      "model": "Інверторний бензиновий генератор MaXpeedingRODS MXR3500",
+      "image": "https://hotline.ua/img/tx/559/5590195025.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/559/5590195025.jpg",
+        "https://hotline.ua/img/tx/559/5590195665.jpg",
+        "https://hotline.ua/img/tx/559/5590195805.jpg"
+      ],
+      "priceUAH": 31013,
+      "rating": 0,
+      "description": "Генератор MaXpeedingRODS MXR3500 є потужним і універсальним пристроєм, здатним забезпечити безперебійну подачу електроенергії в найрізноманітніших умовах. Його номінальна потужність становить 3000 Вт, а максимальна досягає 3500 Вт, що робить його ідеальним для підключення побутової техніки, електроінструментів або обладнання для відпочинку на природі. В основі пристрою лежить 4-тактний бензиновий двигун із робочим об'ємом 145 см³, який вирізняється економічною витратою пального і тривалим термі",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/dacha_sad-generatory/maxpeedingrods-mxr3500/"
+        }
+      ],
+      "repairLinks": [],
+      "powerKW": 3.3,
+      "fuelType": "бензин неетилований",
+      "fuelTankL": 4,
+      "noiseDb": 58,
+      "engineBrand": "4-х тактний 1-циліндровий OHV",
+      "startType": "ручний старт",
+      "runtimeH": 4.5,
+      "weightKg": 21
+    },
+    {
+      "slug": "maxpeedingrods-mxr3500s-dual-fuel",
+      "brand": "MaXpeedingRODS",
+      "model": "Інверторний комбінований генератор (газ-бензин) MaXpeedingRODS MXR3500S Dual Fuel",
+      "image": "https://hotline.ua/img/tx/531/5312218245.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/531/5312218245.jpg",
+        "https://hotline.ua/img/tx/531/5312218255.jpg",
+        "https://hotline.ua/img/tx/531/5312218265.jpg"
+      ],
+      "priceUAH": 38998,
+      "rating": 0,
+      "description": "MaXpeedingRODS MXR3500S Dual Fuel - інверторний комбінований генератор газ/бензин для однофазної мережі 230 В (частота 50/60 Гц). Номінальна потужність: 3,2 кВт (бензин) / 2,8 кВт (LPG), максимальна - 3,5 кВт (бензин) / 3,1 кВт (LPG). Струм навантаження: 29,2 А (бензин) / 25,8 А (LPG). Оснащений 4-тактним 1-циліндровим OHV двигуном із повітряним охолодженням, робочий об'єм - 145 см³. Запуск - дистанційний / електричний / ручний. Паливний бак 6 л, об'єм масла в картері 0,45 л (SAE10W-30). Час авт",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/dacha_sad-generatory/maxpeedingrods-mxr3500s-dual-fuel/"
+        }
+      ],
+      "repairLinks": [],
+      "powerKW": 3.5,
+      "fuelType": "бензин / скраплений газ LPG",
+      "fuelTankL": 6,
+      "noiseDb": 62,
+      "engineBrand": "4-х тактний 1-циліндровий OHV",
+      "startType": "дистанційний / електричний / ручний",
+      "runtimeH": 6.5,
+      "weightKg": 25
+    }
+  ]
+}

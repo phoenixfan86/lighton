@@ -1,0 +1,191 @@
+{
+  "category": "solar-panels",
+  "categoryLabel": "Сонячні панелі",
+  "metaTitle": "Каталог сонячних панелей — ціни та характеристики | LightOn",
+  "metaDescription": "Порівняйте монокристалічні та полікристалічні сонячні панелі. Jinko, Longi, Canadian Solar. Ціни в Україні 2026.",
+  "h1": "Каталог сонячних панелей",
+  "intro": "Сонячні панелі — основа автономної електростанції. Порівняйте монокристалічні та гетероперехідні панелі за потужністю, ефективністю та ціною.",
+  "items": [
+    {
+      "slug": "jinko-solar-jkm440n54hl4rb-ntype-full-black",
+      "brand": "Jinko Solar",
+      "model": "Монокристалічна сонячна панель Jinko Solar JKM440N-54HL4R-B N-type Full Black",
+      "image": "https://hotline.ua/img/tx/537/5379763665.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/537/5379763665.jpg"
+      ],
+      "priceUAH": 3570,
+      "rating": 0,
+      "description": "",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/dacha_sad-solnechnye-paneli-batareipoint-elektrostancii/jinko-solar-jkm440n-54hl4r-b-n-type-full-black/?tab=about"
+        }
+      ],
+      "repairLinks": [],
+      "powerWp": 440,
+      "cellType": "Монокристалічна сонячна панель",
+      "efficiency": 22.02,
+      "dimensions": "1762",
+      "weightKg": 22,
+      "warrantyYears": "-"
+    },
+    {
+      "slug": "ja-solar-jam54d40455lb-bifacial",
+      "brand": "JA Solar",
+      "model": "Монокристалічна сонячна панель JA Solar JAM54D40-455/LB Bifacial",
+      "image": "https://hotline.ua/img/tx/543/5434676385.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/543/5434676385.jpg",
+        "https://hotline.ua/img/tx/543/5434676395.jpg"
+      ],
+      "priceUAH": 3854,
+      "rating": 0,
+      "description": "",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/dacha_sad-solnechnye-paneli-batareipoint-elektrostancii/ja-solar-jam54d40-455lb-bifacial/"
+        }
+      ],
+      "repairLinks": [],
+      "powerWp": 455,
+      "cellType": "Монокристалічна сонячна панель",
+      "efficiency": 22.8,
+      "dimensions": "1762",
+      "weightKg": 22,
+      "warrantyYears": "-"
+    },
+    {
+      "slug": "jinko-solar-jkm590n72hl4bdv",
+      "brand": "Jinko Solar",
+      "model": "Монокристалічна сонячна панель Jinko Solar JKM590N-72HL4-BDV",
+      "image": "https://hotline.ua/img/tx/523/5238332615.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/523/5238332615.jpg",
+        "https://hotline.ua/img/tx/526/5263712985.jpg"
+      ],
+      "priceUAH": 6500,
+      "rating": 0,
+      "description": "Jinko Solar JKM590N-72HL4-BDV — двосторонній монокристалічний фотоелектричний модуль класу 590 Вт, орієнтований на мережеві та гібридні СЕС із високою щільністю потужності та можливістю отримувати додаткову генерацію від відбитого світла. У конструкції застосовано N-type TOPCon елементи та технологію half-cell, що знижує втрати на нагрів і підвищує стабільність вихідної потужності при частковому затіненні. Модуль виконаний у форматі великої панелі з подвійним склом (bi-facial dual glass), тому к",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/dacha_sad-solnechnye-paneli-batareipoint-elektrostancii/jinko-solar-jkm590n-72hl4-bdv/"
+        }
+      ],
+      "repairLinks": [],
+      "powerWp": 590,
+      "cellType": "Монокристалічна сонячна панель",
+      "efficiency": 22.84,
+      "dimensions": "2278",
+      "weightKg": 31,
+      "warrantyYears": "-"
+    },
+    {
+      "slug": "jinko-solar-jkm450n48hl4mbdv-bifacial-black-frame",
+      "brand": "Jinko Solar",
+      "model": "Монокристалічна сонячна панель Jinko Solar JKM-450N-48HL4M-BDV Bifacial, Black frame",
+      "image": "https://hotline.ua/img/tx/565/5659542125.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/565/5659542125.jpg"
+      ],
+      "priceUAH": 3680,
+      "rating": 0,
+      "description": "",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/dacha_sad-solnechnye-paneli-batareipoint-elektrostancii/jinko-solar-jkm-450n-48hl4m-bdv-bifacial-chorna-ramka/"
+        }
+      ],
+      "repairLinks": [],
+      "powerWp": 450,
+      "cellType": "Монокристалічна сонячна панель",
+      "efficiency": 22.52,
+      "dimensions": "1762",
+      "weightKg": 24,
+      "warrantyYears": "-"
+    },
+    {
+      "slug": "canadian-solar-hiku6-cs6r410ms-mono-perc",
+      "brand": "Canadian Solar",
+      "model": "Монокристалічна сонячна панель Canadian Solar HiKu6 CS6R-410MS Mono PERC",
+      "image": "https://hotline.ua/img/tx/566/5660851505.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/566/5660851505.jpg"
+      ],
+      "priceUAH": 3000,
+      "rating": 0,
+      "description": "",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/dacha_sad-solnechnye-paneli-batareipoint-elektrostancii/canadian-solar-hiku6-cs6r-410ms-mono-perc/"
+        }
+      ],
+      "repairLinks": [],
+      "powerWp": 410,
+      "cellType": "Монокристалічна сонячна панель",
+      "efficiency": 21,
+      "dimensions": "1722",
+      "weightKg": 21.3,
+      "warrantyYears": 1
+    },
+    {
+      "slug": "longi-solar-lr866hgd615m-bifacial-himo-7",
+      "brand": "Longi Solar",
+      "model": "Монокристалічна сонячна панель Longi Solar LR8-66HGD-615M Bifacial Hi-MO 7",
+      "image": "https://hotline.ua/img/tx/522/5227064195.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/522/5227064195.jpg",
+        "https://hotline.ua/img/tx/522/5227064205.jpg",
+        "https://hotline.ua/img/tx/522/5227064235.jpg"
+      ],
+      "priceUAH": 4774,
+      "rating": 0,
+      "description": "Longi Solar LR8-66HGD-615M Bifacial Hi-MO 7 - двосторонній (bifacial) фотоелектричний модуль для наземних СЕС і промислових установок, розрахований на підвищене вироблення завдяки роботі передньої і тильної сторін. Номінальна потужність Longi Solar LR8-66HGD-615M Bifacial Hi-MO 7 по фронту становить 615 Вт (STC) при ККД модуля 22,8%, електричні параметри: Voc 48,58 В, Isc 16,00 А, Vmp 40,71 В, Imp 15,11 А, допускається позитивне сортування потужності 0...+3%. Конструкція включає 132 half-cell (6",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/dacha_sad-solnechnye-paneli-batareipoint-elektrostancii/longi-solar-lr8-66hgd-615m-bifacial-hi-mo-7/"
+        }
+      ],
+      "repairLinks": [],
+      "powerWp": 615,
+      "cellType": "Монокристалічна сонячна панель",
+      "efficiency": 22.8,
+      "dimensions": "2382",
+      "weightKg": 33.5,
+      "warrantyYears": 1
+    },
+    {
+      "slug": "jinko-solar-jkm435n54hl4rb-ntype-tiger-neo",
+      "brand": "Jinko Solar",
+      "model": "Монокристалічна сонячна панель Jinko Solar JKM435N-54HL4R-B N-Type Tiger Neo",
+      "image": "https://hotline.ua/img/tx/565/5657975645.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/565/5657975645.jpg",
+        "https://hotline.ua/img/tx/565/5657975665.jpg",
+        "https://hotline.ua/img/tx/565/5657975685.jpg"
+      ],
+      "priceUAH": 3850,
+      "rating": 0,
+      "description": "",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/dacha_sad-solnechnye-paneli-batareipoint-elektrostancii/jinko-solar-jkm435n-54hl4r-b-435wp/"
+        }
+      ],
+      "repairLinks": [],
+      "powerWp": 435,
+      "cellType": "Монокристалічна сонячна панель",
+      "efficiency": 21.77,
+      "dimensions": "1762",
+      "weightKg": 22,
+      "warrantyYears": 1
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "lighton",
+  "version": "1.0.0",
+  "description": "LightOn — каталог енергетичного обладнання. Парсер товарів.",
+  "private": true,
+  "scripts": {
+    "parse": "node scripts/parse-product.js",
+    "help":  "node scripts/parse-product.js"
+  },
+  "dependencies": {
+    "playwright": "^1.44.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

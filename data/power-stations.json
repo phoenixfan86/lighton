@@ -1,0 +1,246 @@
+{
+  "category": "power-stations",
+  "categoryLabel": "Зарядні станції",
+  "metaTitle": "Каталог зарядних станцій — EcoFlow, Bluetti, Jackery | LightOn",
+  "metaDescription": "Порівняйте портативні зарядні станції EcoFlow, Bluetti, Jackery. Ємність, потужність, ціни в Україні 2026.",
+  "h1": "Каталог портативних зарядних станцій",
+  "intro": "Зарядні станції (Power Station) — мобільні акумулятори з виходами 220 В. Ідеальні для відключень світла, кемпінгу та роботи вдома.",
+  "items": [
+    {
+      "slug": "ecoflow-delta-2",
+      "brand": "EcoFlow",
+      "model": "DELTA 2",
+      "image": "https://m.media-amazon.com/images/I/71E7Xia8s7L._AC_SL1500_.jpg",
+      "priceUAH": 32000,
+      "rating": 4.8,
+      "description": "EcoFlow DELTA 2 — 1024 Вт·год, заряджається до 80% за 50 хвилин. Підтримка сонячних панелей.",
+      "capacityWh": 1024,
+      "capacityAh": 0,
+      "acOutputW": 1800,
+      "usbPorts": 6,
+      "solarInputW": 500,
+      "chargingTimeH": 1.2,
+      "buyLinks": [
+        {
+          "name": "EcoFlow UA",
+          "url": "https://ecoflow.com/uk"
+        },
+        {
+          "name": "Rozetka",
+          "url": "https://rozetka.com.ua/search/?text=EcoFlow+DELTA+2"
+        }
+      ],
+      "repairLinks": [
+        {
+          "name": "EcoFlow сервіс",
+          "url": "https://ecoflow.com/uk/pages/service"
+        }
+      ]
+    },
+    {
+      "slug": "bluetti-ac200p",
+      "brand": "Bluetti",
+      "model": "AC200P",
+      "image": "https://m.media-amazon.com/images/I/71C-CJ3AlEL._AC_SL1500_.jpg",
+      "priceUAH": 45000,
+      "rating": 4.7,
+      "description": "Bluetti AC200P — 2000 Вт·год, 17 портів виходу, підходить для тривалих відключень.",
+      "capacityWh": 2000,
+      "capacityAh": 0,
+      "acOutputW": 2000,
+      "usbPorts": 4,
+      "solarInputW": 700,
+      "chargingTimeH": 2.5,
+      "buyLinks": [
+        {
+          "name": "Bluetti UA",
+          "url": "https://bluettipower.ua"
+        },
+        {
+          "name": "Rozetka",
+          "url": "https://rozetka.com.ua/search/?text=Bluetti+AC200P"
+        }
+      ],
+      "repairLinks": [
+        {
+          "name": "Bluetti сервіс",
+          "url": "https://bluettipower.ua/service"
+        }
+      ]
+    },
+    {
+      "slug": "bluetti-ac180p",
+      "brand": "BLUETTI",
+      "model": "Зарядна станція BLUETTI AC180P",
+      "image": "https://hotline.ua/img/tx/547/5477624145.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/547/5477624145.jpg",
+        "https://hotline.ua/img/tx/547/5477623885.jpg",
+        "https://hotline.ua/img/tx/547/5477624005.jpg"
+      ],
+      "priceUAH": 31690,
+      "rating": 0,
+      "description": "BLUETTI AC180P – це зарядна станція, призначена для забезпечення надійного електроживлення за умов відсутності розетки. З вражаючою ємністю 1440 Вт-годин і вихідною потужністю 1800 Вт, вона здатна живити різноманітні пристрої, включаючи побутову техніку, електроніку і навіть електроінструменти. BLUETTI AC180P оснащена різноманітними портами, включаючи AC, DC, USB та USB-C, що забезпечує універсальні можливості підключення. Це робить її ідеальним вибором для мандрівників, кемперів та аварійних си",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/mobile-zaryadnye-stancii/bluetti-bluetti-ac180p/?tab=about"
+        }
+      ],
+      "repairLinks": [],
+      "capacityWh": 1440,
+      "acOutputW": 1800,
+      "acSocket": 2,
+      "usbPorts": 1,
+      "solarInputW": "-",
+      "chargingTimeH": 1,
+      "batTech": 4,
+      "batCapacity": 1440
+    },
+    {
+      "slug": "bluetti-ac180",
+      "brand": "BLUETTI",
+      "model": "Зарядна станція BLUETTI AC180",
+      "image": "https://hotline.ua/img/tx/471/4714006475.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/471/4714006475.jpg",
+        "https://hotline.ua/img/tx/471/4714006485.jpg",
+        "https://img.youtube.com/vi/mnbGUPl8d_g/mqdefault.jpg"
+      ],
+      "priceUAH": 27990,
+      "rating": 0,
+      "description": "Зарядна станція BLUETTI AC180 - це компактне, але потужне рішення для автономного енергопостачання, що забезпечує стабільне живлення в будь-яких умовах. Ємність акумулятора становить 1152 Вт-год, а технологія LiFePO4 гарантує тривалий термін служби з більш ніж 3500 циклами зарядки. Завдяки номінальній потужності 1800 Вт і пікової потужності до 2700 Вт, станція справляється з живленням різних приладів - від побутової електроніки до невеликих побутових пристроїв. Вихідний сигнал у формі чистої син",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/mobile-zaryadnye-stancii/bluetti-ac180/?tab=about"
+        }
+      ],
+      "repairLinks": [],
+      "capacityWh": 1152,
+      "acOutputW": 1800,
+      "acSocket": 2,
+      "usbPorts": 1,
+      "solarInputW": 500,
+      "chargingTimeH": 1.3,
+      "batTech": 4,
+      "batCapacity": 1152
+    },
+    {
+      "slug": "fossibot-f2400",
+      "brand": "Fossibot",
+      "model": "Зарядна станція Fossibot F2400",
+      "image": "https://hotline.ua/img/tx/427/4279163665.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/427/4279163665.jpg",
+        "https://hotline.ua/img/tx/427/4279158885.jpg",
+        "https://hotline.ua/img/tx/427/4279159275.jpg"
+      ],
+      "priceUAH": 36690,
+      "rating": 0,
+      "description": "Зарядна станція Fossibot F2400 являє собою потужне рішення для автономного електроживлення. Пристрій має номінальну потужність 2400 Вт і широкий набір портів для підключення різної техніки. В його оснащення входять шість USB Type-C портів, чотири USB Type-A, два DC-виходи, автомобільна розетка, а також порти XT60 і Anderson. F2400 побудований на базі сучасної LiFePO4 батареї ємністю 2048 Вт-год, розрахованої на більш ніж 3500 циклів зарядки. Станція здатна видавати чисту синусоїду і оснащена фун",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/mobile-zaryadnye-stancii/fossibot-f2400/"
+        }
+      ],
+      "repairLinks": [],
+      "capacityWh": 2048,
+      "acOutputW": 2400,
+      "acSocket": 3,
+      "usbPorts": 4,
+      "solarInputW": "-",
+      "chargingTimeH": 1.5,
+      "batTech": 4,
+      "batCapacity": 2048
+    },
+    {
+      "slug": "ecoflow-delta-3-euversion",
+      "brand": "EcoFlow",
+      "model": "Зарядна станція EcoFlow DELTA 3 EU-Version",
+      "image": "https://hotline.ua/img/tx/507/5070515245.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/507/5070515245.jpg",
+        "https://hotline.ua/img/tx/507/5070515235.jpg",
+        "https://hotline.ua/img/tx/507/5070515215.jpg"
+      ],
+      "priceUAH": 28590,
+      "rating": 0,
+      "description": "EcoFlow DELTA 3 EU-Version - це потужна та універсальна портативна зарядна станція, створена для забезпечення резервного живлення вдома, активного відпочинку або аварійних ситуацій. З її допомогою можна під'єднувати та заряджати широкий спектр пристроїв і обладнання. Пристрій оснащений чотирма розетками AC 230В з номінальною потужністю 1800 Вт і піковими 3600 Вт, що дає змогу використовувати енергоємні побутові прилади. Два порти USB Type-C (до 100 Вт) і два USB Type-A (до 18 Вт) підійдуть для",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/mobile-zaryadnye-stancii/ecoflow-delta-3-eu-version/"
+        }
+      ],
+      "repairLinks": [],
+      "capacityWh": 1024,
+      "acOutputW": 1800,
+      "acSocket": 4,
+      "usbPorts": 2,
+      "solarInputW": 500,
+      "chargingTimeH": 1.5,
+      "batTech": 4,
+      "batCapacity": 1024
+    },
+    {
+      "slug": "ecoflow-delta-2-zmr330eu",
+      "brand": "EcoFlow",
+      "model": "Зарядна станція EcoFlow DELTA 2 (ZMR330-EU)",
+      "image": "https://hotline.ua/img/tx/354/3545330655.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/354/3545330655.jpg",
+        "https://hotline.ua/img/tx/354/3545330705.jpg",
+        "https://hotline.ua/img/tx/354/3545330735.jpg"
+      ],
+      "priceUAH": 25490,
+      "rating": 0,
+      "description": "Сучасна зарядна станція EcoFlow DELTA 2 (ZMR330-EU) пропонує значний набір технічних характеристик, здатних задовольнити найрізноманітніші потреби в енергії як у міських умовах, так і далеко від цивілізації. З нею ви отримуєте високу вихідну потужність, що досягає 1800 Вт, і пікову потужність до 2700 Вт, що дає змогу під'єднати одночасно до 13 різних електронних пристроїв. Система X-Boost забезпечує надійний захист від перевантажень, що робить роботу з пристроєм безпечною та надійною. Завдання з",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/mobile-zaryadnye-stancii/ecoflow-delta-2-zmr330-eu/"
+        }
+      ],
+      "repairLinks": [],
+      "capacityWh": 1024,
+      "acOutputW": 1800,
+      "acSocket": 4,
+      "usbPorts": 2,
+      "solarInputW": 500,
+      "chargingTimeH": 1.2,
+      "batTech": 4,
+      "batCapacity": 1024
+    },
+    {
+      "slug": "oukitel-p2001-plus",
+      "brand": "Oukitel",
+      "model": "Зарядна станція Oukitel P2001 Plus",
+      "image": "https://hotline.ua/img/tx/501/5016196055.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/501/5016196055.jpg",
+        "https://hotline.ua/img/tx/501/5016196045.jpg",
+        "https://hotline.ua/img/tx/501/5016196005.jpg"
+      ],
+      "priceUAH": 37491,
+      "rating": 0,
+      "description": "Oukitel P2001 Plus - це потужне і зручне рішення для резервного живлення, що ідеально підходить для аварійних ситуацій, кемпінгу або роботи в умовах відсутності мережі. Вона оснащена батареєю LiFePO4 з ємністю 2048 Вт-год, що забезпечує довговічність (до 3500 циклів) і безпеку використання. Станція підтримує пікову потужність 4800 Вт і номінальну потужність 2400 Вт, що дає змогу заряджати та живити навіть енергоємні пристрої. Oukitel P2001 Plus пропонує безліч портів для під'єднання пристроїв,",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/mobile-zaryadnye-stancii/oukitel-oukitel-p2001-plus/"
+        }
+      ],
+      "repairLinks": [],
+      "capacityWh": 2048,
+      "acOutputW": 2400,
+      "acSocket": 4,
+      "usbPorts": 4,
+      "solarInputW": 500,
+      "chargingTimeH": 1.5,
+      "batTech": 4,
+      "batCapacity": 2048
+    }
+  ]
+}

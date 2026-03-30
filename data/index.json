@@ -1,0 +1,34 @@
+{
+  "categories": [
+    {
+      "id": "generators",
+      "label": "Генератори",
+      "icon": "⚡",
+      "file": "generators.json"
+    },
+    {
+      "id": "inverters",
+      "label": "Інвертори",
+      "icon": "🔄",
+      "file": "inverters.json"
+    },
+    {
+      "id": "solar-panels",
+      "label": "Сонячні панелі",
+      "icon": "☀️",
+      "file": "solar-panels.json"
+    },
+    {
+      "id": "batteries",
+      "label": "Акумулятори",
+      "icon": "🔋",
+      "file": "batteries.json"
+    },
+    {
+      "id": "power-stations",
+      "label": "Зарядні станції",
+      "icon": "💡",
+      "file": "power-stations.json"
+    }
+  ]
+}
