@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://lighton.pp.ua/sitemap.xml

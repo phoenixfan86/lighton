@@ -549,6 +549,83 @@ function filterProducts(items, query) {
 }
 
 // ─────────────────────────────────────────────────────────────
+// РЕНДЕР КОРОТКОГО ОГЛЯДУ (short) - останні 4 товари з кожної категорії
+// ─────────────────────────────────────────────────────────────
+async function renderShort() {
+  const shortContainer = document.getElementById("short-cat");
+  if (!shortContainer) return;
+  
+  shortContainer.innerHTML = `<div class="loading">⏳ Завантаження короткого огляду…</div>`;
+  
+  // Список всіх категорій
+  const categories = [
+    { id: "generators", label: "Генератори", icon: "⚡" },
+    { id: "inverters", label: "Інвертори", icon: "🔄" },
+    { id: "solar-panels", label: "Сонячні панелі", icon: "☀️" },
+    { id: "batteries", label: "Акумулятори", icon: "🔋" },
+    { id: "power-stations", label: "Зарядні станції", icon: "💡" }
+  ];
+  
+  let allCategoriesHtml = '';
+  
+  for (const cat of categories) {
+    try {
+      const data = await loadCategory(cat.id);
+      
+      if (data && data.items && data.items.length > 0) {
+        // Беремо останні 4 товари (з кінця масиву)
+        const latestItems = data.items.slice(-4).reverse();
+        
+        allCategoriesHtml += `
+          <div style="margin-bottom: 2rem;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+              <h2 style="margin: 0; font-size: 1.5rem;">
+                ${cat.icon} ${cat.label}
+              </h2>
+              <a href="catalog.html#${cat.id}" style="color: var(--color-primary); text-decoration: none;">Всі ${cat.label.toLowerCase()} →</a>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem;">
+              ${latestItems.map(item => renderProductCard(item, cat.id)).join('')}
+            </div>
+          </div>
+        `;
+      }
+    } catch (e) {
+      console.error(`Помилка категорії ${cat.id}:`, e);
+    }
+  }
+  
+  if (allCategoriesHtml) {
+    shortContainer.innerHTML = allCategoriesHtml;
+  } else {
+    shortContainer.innerHTML = `<p style="color:var(--color-text-muted)">Немає доступних товарів. Додайте перші товари через парсер.</p>`;
+  }
+}
+
+// // ─────────────────────────────────────────────────────────────
+// // РЕНДЕР КОРОТКОГО ОГЛЯДУ (short)
+// // ─────────────────────────────────────────────────────────────
+// async function renderShort() {
+//   const shortContainer = document.getElementById("short-cat")
+//   shortContainer.innerHTML = `<div class="loading">⏳ Завантаження короткого огляду…</div>`;
+//   const categoryId = "generators";
+//   try {
+//     const data = await loadCategory(categoryId);
+//     if (!data) throw new Error("Категорію не знайдено");
+//     console.log(data);
+// let shortItem = data.items;
+
+// const renderShortItems = (items)=>{
+// shortContainer.innerHTML=items.length ? items.map(item => renderProductCard(item, categoryId)).slice(0,4).join("")
+//         : `<p style="color:var(--color-text-muted)">Нічого не знайдено.</p>`;      
+// }
+// renderShortItems(shortItem);
+//   } catch (e) {
+//     container.innerHTML = `<p>❌ Помилка: ${e.message}</p>`;
+//   }
+// }
+
+// ─────────────────────────────────────────────────────────────
 // РЕНДЕР СТОРІНКИ КАТЕГОРІЇ (catalog.html)
 // ─────────────────────────────────────────────────────────────
 
@@ -561,6 +638,7 @@ async function renderCatalogPage() {
 
   // Отримати категорію з URL: catalog.html#generators
   const categoryId = (window.location.hash || "").replace("#", "") || "generators";
+
 
   // Показати спінер
   container.innerHTML = `<div class="loading">⏳ Завантаження…</div>`;
@@ -774,6 +852,7 @@ async function renderRepairPage() {
 // Робимо функції глобальними для виклику з HTML
 window.renderCatalogPage = renderCatalogPage;
 window.renderProductPage = renderProductPage;
+window.renderShort = renderShort;
 
 document.addEventListener("DOMContentLoaded", () => {
   const page = document.body.dataset.page;

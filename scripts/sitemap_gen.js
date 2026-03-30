@@ -1,56 +1,78 @@
 const fs = require('fs');
+const path = require('path');
 
 // 1. Налаштування
-const BASE_URL = 'https://lighton.pp.ua'; // Ваш домен
-const DATA_FILE = './assets/data/data.json'; // Шлях до вашого JSON з товарами
+const BASE_URL = 'https://lighton.pp.ua';
+const DATA_DIR = '../data/'; // Папка з вашими файлами (generators.json і т.д.)
 const OUTPUT_FILE = './sitemap.xml';
 
-// 2. Статичні сторінки (ті, що існують як окремі .html файли)
+// 2. Статичні сторінки
 const staticPages = [
-  '',                // Головна
-  '/catalog.html',   // Сторінка каталогу
-  '/repair.html',    // Сторінка ремонту
+  '',
+  '/catalog.html',
+  '/repair.html',
 ];
 
 try {
-  // 3. Читаємо дані з JSON для динамічних посилань
-  // Припустимо, у вас структура JSON: { "generators": [...], "inverters": [...] }
-  const rawData = fs.readFileSync(DATA_FILE, 'utf8');
-  const data = JSON.parse(rawData);
-  const categories = Object.keys(data); // Отримуємо назви категорій
-
   let xmlItems = '';
+  const today = new Date().toISOString().split('T')[0];
 
   // Додаємо статичні сторінки
   staticPages.forEach(page => {
     xmlItems += `
   <url>
     <loc>${BASE_URL}${page}</loc>
-    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    <lastmod>${today}</lastmod>
     <priority>${page === '' ? '1.0' : '0.8'}</priority>
   </url>`;
   });
 
-  // Додаємо динамічні посилання на категорії (наприклад, через хеші)
-  categories.forEach(cat => {
-    xmlItems += `
+  // 3. Читаємо всі JSON файли
+  const files = fs.readdirSync(DATA_DIR).filter(file => file.endsWith('.json'));
+
+  files.forEach(file => {
+    const category = path.basename(file, '.json');
+    const rawData = fs.readFileSync(path.join(DATA_DIR, file), 'utf8');
+    const content = JSON.parse(rawData);
+
+    // Отримуємо масив з ключа "items"
+    const products = content.items;
+
+    if (Array.isArray(products)) {
+      // Додаємо посилання на категорію
+      xmlItems += `
   <url>
-    <loc>${BASE_URL}/catalog.html#${cat}</loc>
-    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    <loc>${BASE_URL}/catalog.html#${category}</loc>
+    <lastmod>${today}</lastmod>
     <priority>0.7</priority>
   </url>`;
+
+      // Додаємо кожен товар
+      products.forEach(product => {
+        if (product.slug) {
+          // Замінюємо & на &amp; для валідності XML
+          const productUrl = `${BASE_URL}/product.html?category=${category}&amp;slug=${product.slug}`;
+          
+          xmlItems += `
+  <url>
+    <loc>${productUrl}</loc>
+    <lastmod>${today}</lastmod>
+    <priority>0.6</priority>
+  </url>`;
+        }
+      });
+    }
   });
 
-  // 4. Формуємо повний XML
+  // 4. Формуємо XML
   const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${xmlItems}
 </urlset>`;
 
-  // 5. Записуємо у файл
   fs.writeFileSync(OUTPUT_FILE, sitemapContent);
-  console.log('✅ sitemap.xml успішно згенеровано!');
+  console.log(`✅ Sitemap згенеровано! Оброблено файлів: ${files.length}`);
 
 } catch (error) {
-  console.error('❌ Помилка при генерації sitemap:', error.message);
+  console.error('❌ Помилка:', error.message);
 }
