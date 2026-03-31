@@ -101,9 +101,57 @@
       "repairLinks": [],
       "capacityAh": 120,
       "voltageV": 12,
-      "chemistry": "Акумулятор для ДБЖ/інвертора",
+      "chemistry": "GEL",
       "cyclesCount": "-",
       "weightKg": 34
+    },
+    {
+      "slug": "volt-polska-12v-140ah-gel-vpro-premium-6akugel140",
+      "brand": "Volt Polska",
+      "model": "Акумулятор для ДБЖ/інвертора Volt Polska 12V 140Ah GEL VPRO PREMIUM (6AKUGEL140)",
+      "image": "https://hotline.ua/img/tx/566/5663747315.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/566/5663747315.jpg"
+      ],
+      "priceUAH": 13990,
+      "rating": 0,
+      "description": "Акумулятор для ДБЖ/інвертора Volt Polska 12V 140Ah GEL VPRO PREMIUM (6AKUGEL140) - це високоякісне рішення преміум-класу, створене для забезпечення стабільного енергопостачання в найрізноманітніших системах. Заснований на інноваційній гелевій технології (GEL), цей акумулятор гарантує надійну роботу, безпеку і довгий термін служби, що робить його ідеальним вибором для ДБЖ, інверторів, сонячних станцій та інших енергоємних додатків. З номінальною напругою 12 В і ємністю 140 А-год, акумулятор забе",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/computer-akkumulyatory-dlya-ibp/volt-polska-12v-140ah-gel-vpro-premium-6akugel140/"
+        }
+      ],
+      "repairLinks": [],
+      "capacityAh": 140,
+      "voltageV": 12,
+      "chemistry": "GEL",
+      "cyclesCount": "-",
+      "weightKg": 33
+    },
+    {
+      "slug": "ventura-vg-12120-gel",
+      "brand": "Ventura",
+      "model": "Акумулятор для ДБЖ/інвертора Ventura VG 12-120 Gel",
+      "image": "https://hotline.ua/img/tx/564/5642802865.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/564/5642802865.jpg"
+      ],
+      "priceUAH": 13578,
+      "rating": 0,
+      "description": "Останні додані товари в каталозі \"Акумулятори для ДБЖ та інверторів\". Порівнюйте характеристики Ventura VG 12-120 Gel з новинками, виберіть товари, які вас зацікавили, і натисніть «Порівняти».",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/computer-akkumulyatory-dlya-ibp/ventura-vg-12-120-gel/?tab=about"
+        }
+      ],
+      "repairLinks": [],
+      "capacityAh": 120,
+      "voltageV": 12,
+      "chemistry": "GEL",
+      "cyclesCount": "-",
+      "weightKg": 36.2
     }
   ]
 }
