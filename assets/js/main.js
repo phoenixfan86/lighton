@@ -264,12 +264,6 @@ async function renderProductPage() {
       return;
     }
 
-    document.title = `${product.model} | LightOn`;
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute("content", product.description?.substring(0, 160) || "");
-    }
-
     const categoryNames = {
       "generators": "Генератори",
       "inverters": "Інвертори",
@@ -277,6 +271,14 @@ async function renderProductPage() {
       "batteries": "Акумулятори",
       "power-stations": "Зарядні станції"
     };
+
+    document.title = `${product.model} | LightOn`;
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute("content", product.description?.substring(0, 160) || `${product.model} повні характеристики, відеоогляди та де купити ${categoryNames[category]} в Україні. Поради з обслуговування та ремонту на порталі LightOn.`);
+    }
+
+    
     
     const categoryName = categoryNames[category] || category;
     const breadcrumbCatalog = document.getElementById("breadcrumb-catalog");
@@ -467,6 +469,93 @@ async function renderProductPage() {
     //   ${moreResult}
     //   </div>`
     // }
+
+// ─────────────────────────────────────────────────────────────
+// SCHEMA
+// ─────────────────────────────────────────────────────────────
+function injectBreadcrumbs(categorySlug, categoryName, productName, productSlug) {
+    const baseUrl = "https://lighton.pp.ua";
+    
+    const breadcrumbSchema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Головна",
+                "item": `${baseUrl}/`
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Каталог",
+                "item": `${baseUrl}/catalog.html`
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": categoryName,
+                "item": `${baseUrl}/catalog.html#${categorySlug}`
+            },
+            {
+                "@type": "ListItem",
+                "position": 4,
+                "name": productName,
+                // Формуємо чисте посилання для індексації, а не беремо локальне з браузера
+                "item": `${baseUrl}/product.html?category=${categorySlug}&slug=${productSlug}`
+            }
+        ]
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(breadcrumbSchema);
+    document.head.appendChild(script);
+}
+
+const currentCatName = categoryNames[urlParams.category] || "Каталог";
+
+// Викликаємо функцію
+injectBreadcrumbs(category, currentCatName, product.model, slug);
+
+const schemaData = {
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": product.model,
+  "image": product.image,
+  "description": product.description,
+  "brand": {
+    "@type": "Brand",
+    "name": product.brand
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": window.location.href,
+    "priceCurrency": "UAH",
+    "price": product.priceUAH,
+    "itemCondition": "https://schema.org/NewCondition",
+    "availability": "https://schema.org/InStock"
+  },
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "Потужність",
+      "value": product.powerKW + " кВт"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Тип палива",
+      "value": product.fuelType
+    }
+  ]
+};
+
+// Вставка в <head>
+const script = document.createElement('script');
+script.type = 'application/ld+json';
+script.text = JSON.stringify(schemaData);
+document.head.appendChild(script);
     
     addImageModal();
     
@@ -480,6 +569,8 @@ async function renderProductPage() {
     `;
   }
 }
+
+
 
 function addImageModal() {
   if (document.getElementById("image-modal")) return;

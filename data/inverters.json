@@ -230,6 +230,56 @@
       "outputVoltage": "чиста синусоїда",
       "waveform": "чиста синусоїда",
       "efficiency": 98
+    },
+    {
+      "slug": "dcac-must-ep201012v-kd00ms0048",
+      "brand": "MUST",
+      "model": "Перетворювач DC-AC MUST EP20-1012V (KD00MS0048)",
+      "image": "https://hotline.ua/img/tx/543/5438024475.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/543/5438024475.jpg",
+        "https://hotline.ua/img/tx/543/5438024505.jpg",
+        "https://hotline.ua/img/tx/543/5438024535.jpg"
+      ],
+      "priceUAH": 12999,
+      "rating": 0,
+      "description": "",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/auto-preobrazovateli-napryazheniya/mustek-kd00ms0048/"
+        }
+      ],
+      "repairLinks": [],
+      "powerW": 1000,
+      "inputVoltage": "Акумулятор автомобіля (клеми)",
+      "outputVoltage": "чиста синусоїда",
+      "waveform": "чиста синусоїда",
+      "efficiency": 85
+    },
+    {
+      "slug": "dcac-qoltec-12v-230v-1000w2000w-51934",
+      "brand": "Qoltec",
+      "model": "Перетворювач (інвертор) DC-AC Qoltec 12V 230V 1000W/2000W (51934)",
+      "image": "https://hotline.ua/img/tx/566/5663474865.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/566/5663474865.jpg"
+      ],
+      "priceUAH": 4639,
+      "rating": 0,
+      "description": "Останні додані товари в каталозі \"Перетворювачі напруги (інвертори)\". Порівнюйте характеристики Qoltec 12V 230V 1000W/2000W (51934) з новинками, виберіть товари, які вас зацікавили, і натисніть «Порівняти».",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/auto-preobrazovateli-napryazheniya/qoltec-12v-230v-1000w2000w-51934/"
+        }
+      ],
+      "repairLinks": [],
+      "powerW": 1000,
+      "inputVoltage": "Акумулятор автомобіля (клеми)",
+      "outputVoltage": "чиста синусоїда",
+      "waveform": "чиста синусоїда",
+      "efficiency": 90
     }
   ]
 }
