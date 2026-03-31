@@ -452,10 +452,21 @@ async function renderProductPage() {
     const seoDiv = document.getElementById("product-seo-text");
     if (seoDiv) {
       seoDiv.innerHTML = `
-        <p><strong>${escapeHtml(product.brand)} ${escapeHtml(product.model)}</strong> — це надійне обладнання для вашого дому або бізнесу. 
+        <p><strong>${escapeHtml(product.model)}</strong> — це надійне обладнання для вашого дому або бізнесу. 
         Ознайомтеся з характеристиками, порівняйте ціни та виберіть найкращу пропозицію.</p>
       `;
     }
+
+    // const moreProduct = document.getElementById("more-product");
+    // const moreResult = renderItems(filterProducts(data.items, product.brand));
+    
+    // if(moreProduct){
+    //   moreProduct.innerHTML=`
+    //   <div>
+    //   <h3>Інші моделі бренду ${product.brand}</h3>
+    //   ${moreResult}
+    //   </div>`
+    // }
     
     addImageModal();
     
@@ -601,29 +612,6 @@ async function renderShort() {
     shortContainer.innerHTML = `<p style="color:var(--color-text-muted)">Немає доступних товарів. Додайте перші товари через парсер.</p>`;
   }
 }
-
-// // ─────────────────────────────────────────────────────────────
-// // РЕНДЕР КОРОТКОГО ОГЛЯДУ (short)
-// // ─────────────────────────────────────────────────────────────
-// async function renderShort() {
-//   const shortContainer = document.getElementById("short-cat")
-//   shortContainer.innerHTML = `<div class="loading">⏳ Завантаження короткого огляду…</div>`;
-//   const categoryId = "generators";
-//   try {
-//     const data = await loadCategory(categoryId);
-//     if (!data) throw new Error("Категорію не знайдено");
-//     console.log(data);
-// let shortItem = data.items;
-
-// const renderShortItems = (items)=>{
-// shortContainer.innerHTML=items.length ? items.map(item => renderProductCard(item, categoryId)).slice(0,4).join("")
-//         : `<p style="color:var(--color-text-muted)">Нічого не знайдено.</p>`;      
-// }
-// renderShortItems(shortItem);
-//   } catch (e) {
-//     container.innerHTML = `<p>❌ Помилка: ${e.message}</p>`;
-//   }
-// }
 
 // ─────────────────────────────────────────────────────────────
 // РЕНДЕР СТОРІНКИ КАТЕГОРІЇ (catalog.html)
