@@ -80,6 +80,82 @@
       "outputVoltage": "230",
       "waveform": "чиста синусоїда",
       "efficiency": 90
+    },
+    {
+      "slug": "dcac-baseus-incar-inverter-150w-black-crnbqa01",
+      "brand": "Baseus",
+      "model": "Перетворювач (інвертор) DC-AC Baseus In-car Inverter 150W Black (CRNBQ-A01)",
+      "image": "https://hotline.ua/img/tx/564/5646910865.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/564/5646910865.jpg",
+        "https://hotline.ua/img/tx/564/5646910885.jpg",
+        "https://hotline.ua/img/tx/564/5646910895.jpg"
+      ],
+      "priceUAH": 948,
+      "rating": 0,
+      "description": "Це елегантний і надкомпактний пристрій, розроблений спеціально для використання в салоні автомобіля, що дає змогу під'єднувати техніку потужністю до 150 Вт через стандартну розетку та сучасні порти USB/Type-C. Незважаючи на свої скромні габарити, модель підтримує технологію швидкого заряджання і генерує модифіковану синусоїду, яка добре підходить для живлення ноутбуків, планшетів, ігрових консолей і невеликих побутових приладів на кшталт автомобільних холодильників. Пристрій оснащений цифровим д",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/auto-preobrazovateli-napryazheniya/baseus-in-car-inverter-150w-black-crnbq-a01/"
+        }
+      ],
+      "repairLinks": [],
+      "powerW": 150,
+      "inputVoltage": "Прикурювач автомобіля",
+      "outputVoltage": "Модифікована синусоїда",
+      "waveform": "Модифікована синусоїда",
+      "efficiency": "-"
+    },
+    {
+      "slug": "dcac-green-cell-invgc09-12220-10002000w",
+      "brand": "Green Cell",
+      "model": "Перетворювач (інвертор) DC-AC Green Cell INVGC09 12/220В 1000/2000W",
+      "image": "https://hotline.ua/img/tx/559/5593329855.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/559/5593329855.jpg",
+        "https://hotline.ua/img/tx/559/5593329885.jpg",
+        "https://hotline.ua/img/tx/559/5593329915.jpg"
+      ],
+      "priceUAH": 6697,
+      "rating": 0,
+      "description": "Останні додані товари в каталозі \"Перетворювачі напруги (інвертори)\". Порівнюйте характеристики Green Cell INVGC09 12/220В 1000/2000W з новинками, виберіть товари, які вас зацікавили, і натисніть «Порівняти».",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/auto-preobrazovateli-napryazheniya/green-cell-invgc09/"
+        }
+      ],
+      "repairLinks": [],
+      "powerW": 1000,
+      "inputVoltage": "Акумулятор автомобіля (клеми), прикурювач",
+      "outputVoltage": "чиста синусоїда",
+      "waveform": "чиста синусоїда",
+      "efficiency": 90
+    },
+    {
+      "slug": "dcac-choetech-invc1500wupseu",
+      "brand": "Choetech",
+      "model": "Перетворювач (інвертор) DC-AC Choetech INV-C1500WUPS-EU",
+      "image": "https://hotline.ua/img/tx/565/5651282885.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/565/5651282885.jpg"
+      ],
+      "priceUAH": 8999,
+      "rating": 0,
+      "description": "",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/auto-preobrazovateli-napryazheniya/choetech-inv-c1500wups-eu/"
+        }
+      ],
+      "repairLinks": [],
+      "powerW": 1500,
+      "inputVoltage": "Акумулятор автомобіля (крокодили), прикурювач",
+      "outputVoltage": "чиста синусоїда",
+      "waveform": "чиста синусоїда",
+      "efficiency": 90
     }
   ]
 }

@@ -55,6 +55,55 @@
       "chemistry": "Акумулятор для ДБЖ/інвертора",
       "cyclesCount": 4000,
       "weightKg": 11
+    },
+    {
+      "slug": "ritar-gel-ft12105g",
+      "brand": "Ritar",
+      "model": "Акумулятор для ДБЖ/інвертора Ritar GEL FT12-105G",
+      "image": "https://hotline.ua/img/tx/559/5593938015.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/559/5593938015.jpg"
+      ],
+      "priceUAH": 11025,
+      "rating": 0,
+      "description": "Останні додані товари в каталозі \"Акумулятори для ДБЖ та інверторів\". Порівнюйте характеристики Ritar GEL FT12-105G з новинками, виберіть товари, які вас зацікавили, і натисніть «Порівняти».",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/computer-akkumulyatory-dlya-ibp/ritar-gel-ft12-105g/"
+        }
+      ],
+      "repairLinks": [],
+      "capacityAh": 105,
+      "voltageV": 12,
+      "chemistry": "Акумулятор для ДБЖ/інвертора",
+      "cyclesCount": 450,
+      "weightKg": 32.5
+    },
+    {
+      "slug": "maxx-battery-fm12120ah-120-ah-12v",
+      "brand": "MAXX Battery",
+      "model": "Акумулятор для ДБЖ/інвертора MAXX Battery FM-12-120Ah 120 Ah 12V",
+      "image": "https://hotline.ua/img/tx/378/3787380165.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/378/3787380165.jpg",
+        "https://hotline.ua/img/tx/378/3787380175.jpg"
+      ],
+      "priceUAH": 11750,
+      "rating": 0,
+      "description": "",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/computer-akkumulyatory-dlya-ibp/maxx-battery-fm-12-120ah-120-ah-12v/"
+        }
+      ],
+      "repairLinks": [],
+      "capacityAh": 120,
+      "voltageV": 12,
+      "chemistry": "Акумулятор для ДБЖ/інвертора",
+      "cyclesCount": "-",
+      "weightKg": 34
     }
   ]
 }
