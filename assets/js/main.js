@@ -181,7 +181,7 @@ function renderProductCard(item, category) {
   const imgSrc = item.image || "assets/img/placeholder.svg";
 
   return `
-    <!-- Картка товару: ${item.brand} ${item.model} -->
+    
     <div class="product-card" data-slug="${item.slug}" data-category="${category}">
     <a href="product.html?category=${category}&slug=${item.slug}" class="details-link">
       <img
@@ -196,7 +196,7 @@ function renderProductCard(item, category) {
         <div class="product-card__brand">${escapeHtml(item.brand)}</div>
         <div class="product-card__title">${escapeHtml(item.model)}</div>
         <p class="product-card__desc">${escapeHtml(item.description.substring(0, 150).split(" ").slice(0, -1).join(" "))}...</p>
-        <!-- Характеристики, залежні від типу пристрою -->
+        
         <div class="product-card__specs">
           ${specs.map(s => `<span>${s}</span>`).join("")}
         </div>
@@ -742,9 +742,9 @@ async function renderArticlePage() {
     ).join("");
 
     container.innerHTML = `
-      <!-- Сторінка статті -->
+      
       <article class="article-page">
-        <!-- Breadcrumb навігація -->
+        
         <nav class="breadcrumb">
           <a href="index.html">Головна</a><span>›</span>
           <a href="repair.html#${categoryId}">${catObj ? catObj.label : categoryId}</a><span>›</span>
@@ -754,19 +754,19 @@ async function renderArticlePage() {
         <h1>${article.title}</h1>
         <p class="intro">${article.intro}</p>
 
-        <!-- Рекламний блок між вступом і змістом -->
+        
         <div class="ad-slot ad-slot-leaderboard" id="ad-article-top">
           [Реклама]
         </div>
 
         ${sections}
 
-        <!-- SEO-теги (ключові слова) -->
+        
         <div style="margin-top:2rem;">
           <strong>Теги:</strong> ${tags}
         </div>
 
-        <!-- Рекламний блок в кінці статті -->
+        
         <div class="ad-slot ad-slot-leaderboard" id="ad-article-bottom">
           [Реклама]
         </div>

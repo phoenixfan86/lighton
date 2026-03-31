@@ -122,8 +122,9 @@ ul {
 .hero {
 	background: linear-gradient(135deg, var(--color-accent) 0%, #0f3460 100%);
 	color: #fff;
-	padding: 4rem 0 3rem;
+	padding: 2rem 0 3rem;
 	text-align: center;
+	box-shadow: 0 2px 8px rgb(0, 0, 0);
 }
 .hero h1 {
 	font-size: 2.4rem;
@@ -146,9 +147,15 @@ ul {
 	font-size: 0.85rem;
 	margin-bottom: 1.5rem;
 }
+
+.hero-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 15px;
+}
 .btn {
-	display: inline-block;
-	padding: 0.75rem 2rem;
+	padding: 0.75rem 1rem;
 	border-radius: var(--radius);
 	font-weight: 600;
 	font-size: 1rem;
@@ -809,6 +816,10 @@ ul {
 @media (max-width: 768px) {
 	.hero h1 {
 		font-size: 1.7rem;
+	}
+
+	.hero-btn {
+		flex-direction: column;
 	}
 	.site-footer .container {
 		grid-template-columns: 1fr;
