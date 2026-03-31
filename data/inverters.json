@@ -7,85 +7,79 @@
   "intro": "Інвертор перетворює постійний струм акумулятора або сонячних панелей у змінний струм 220 В. Оберіть модель за потужністю та типом хвилі.",
   "items": [
     {
-      "slug": "must-ph18-3024-plus",
-      "brand": "Must",
-      "model": "PH18-3024 Plus",
-      "image": "https://must-power.com/wp-content/uploads/2021/09/PH18-3024.jpg",
-      "priceUAH": 12500,
-      "rating": 4.5,
-      "description": "Гібридний інвертор Must 3 кВт з чистою синусоїдою та вбудованим контролером заряду.",
-      "powerW": 3000,
-      "inputVoltage": "24V DC",
-      "outputVoltage": "230V AC",
-      "waveform": "чиста синусоїда",
-      "efficiency": 93,
-      "buyLinks": [
-        {
-          "name": "Rozetka",
-          "url": "https://rozetka.com.ua/search/?text=Must+PH18-3024"
-        },
-        {
-          "name": "Prom.ua",
-          "url": "https://prom.ua/Invertory?search_term=Must+PH18"
-        }
-      ],
-      "repairLinks": [
-        {
-          "name": "Must сервіс Україна",
-          "url": "https://must-power.ua/service"
-        }
-      ]
-    },
-    {
-      "slug": "luxeon-lap-500sp",
-      "brand": "Luxeon",
-      "model": "LAP-500SP",
-      "image": "https://content.rozetka.com.ua/goods/images/big/358900000.jpg",
-      "priceUAH": 3200,
-      "rating": 4.2,
-      "description": "Автомобільний інвертор Luxeon 500 Вт з чистою синусоїдою від прикурювача.",
-      "powerW": 500,
-      "inputVoltage": "12V DC",
-      "outputVoltage": "230V AC",
-      "waveform": "чиста синусоїда",
-      "efficiency": 88,
-      "buyLinks": [
-        {
-          "name": "Rozetka",
-          "url": "https://rozetka.com.ua/search/?text=Luxeon+LAP-500SP"
-        }
-      ],
-      "repairLinks": []
-    },
-    {
-      "slug": "deye-sun-5k-sg04lp3",
+      "slug": "hybrid-deye-sun5ksg04lp3eu",
       "brand": "Deye",
-      "model": "SUN-5K-SG04LP3",
-      "image": "https://deye.com/wp-content/uploads/2022/10/5KW.jpg",
-      "priceUAH": 58000,
-      "rating": 4.7,
-      "description": "Сонячний гібридний інвертор Deye 5 кВт з підтримкою LiFePO4 та мережевої роботи.",
-      "powerW": 5000,
-      "inputVoltage": "48V DC",
-      "outputVoltage": "230V AC",
-      "waveform": "чиста синусоїда",
-      "efficiency": 97,
+      "model": "Гібридний сонячний інвертор (hybrid) Deye SUN-5K-SG04LP3-EU",
+      "image": "https://hotline.ua/img/tx/564/5647583315.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/564/5647583315.jpg"
+      ],
+      "priceUAH": 73425,
+      "rating": 0,
+      "description": "",
       "buyLinks": [
         {
-          "name": "Rozetka",
-          "url": "https://rozetka.com.ua/search/?text=Deye+SUN-5K"
-        },
-        {
-          "name": "SolarTown",
-          "url": "https://solartown.com.ua/search?q=Deye"
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/dacha_sad-invertory-dlya-solnechnyh-batarej/deye-sun-5k-sg04lp3-eu/"
         }
       ],
-      "repairLinks": [
+      "repairLinks": [],
+      "powerW": 5,
+      "inputVoltage": "200",
+      "outputVoltage": "230/400",
+      "waveform": "чиста синусоїда",
+      "efficiency": 97
+    },
+    {
+      "slug": "dcac-luxeon-ips6000s",
+      "brand": "Luxeon",
+      "model": "Інвертор DC-AC Luxeon IPS-6000S",
+      "image": "https://hotline.ua/img/tx/556/5564219245.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/556/5564219245.jpg",
+        "https://img.youtube.com/vi/kJXU5rbWMf4/mqdefault.jpg"
+      ],
+      "priceUAH": 21179,
+      "rating": 0,
+      "description": "",
+      "buyLinks": [
         {
-          "name": "Deye Україна",
-          "url": "https://deye.com.ua/service"
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/auto-preobrazovateli-napryazheniya/luxeon-ips-6000s/"
         }
-      ]
+      ],
+      "repairLinks": [],
+      "powerW": 3600,
+      "inputVoltage": "Акумулятор автомобіля (клеми)",
+      "outputVoltage": "чиста синусоїда",
+      "waveform": "чиста синусоїда",
+      "efficiency": 90
+    },
+    {
+      "slug": "hybrid-must-pv183224vpm-ii",
+      "brand": "MUST",
+      "model": "Гібридний сонячний інвертор (hybrid) MUST PV18-3224VPM II",
+      "image": "https://hotline.ua/img/tx/481/4819494065.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/481/4819494065.jpg",
+        "https://hotline.ua/img/tx/481/4819494125.jpg",
+        "https://hotline.ua/img/tx/481/4819494165.jpg"
+      ],
+      "priceUAH": 10990,
+      "rating": 0,
+      "description": "Гібридний сонячний інвертор MUST PV18-3224 VPM II Series призначений для перетворення сонячної енергії в електрику з номінальною потужністю 3,2 кВт. Він підтримує роботу в однофазних системах і забезпечує чисту синусоїдальну форму вихідного сигналу. Пристрій оснащений вбудованим MPPT-контролером з максимальним струмом заряду до 120 А, що дає змогу ефективно керувати зарядкою акумуляторних батарей з номінальною напругою 24 В. Діапазон вхідної напруги становить від 90 до 280 В, забезпечуючи стабіл",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/dacha_sad-invertory-dlya-solnechnyh-batarej/must-pv18-3224-vpm-ll-series_/"
+        }
+      ],
+      "repairLinks": [],
+      "powerW": 3.2,
+      "inputVoltage": "90",
+      "outputVoltage": "230",
+      "waveform": "чиста синусоїда",
+      "efficiency": 90
     }
   ]
 }

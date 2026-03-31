@@ -7,75 +7,54 @@
   "intro": "Акумулятор — серце резервної системи живлення. Оберіть між AGM, GEL або LiFePO4 залежно від бюджету та кількості циклів.",
   "items": [
     {
-      "slug": "litime-12v-100ah-lifepo4",
+      "slug": "merlion-12v-100ah-agm-6dzm100",
+      "brand": "Merlion",
+      "model": "Акумулятор для ДБЖ/інвертора Merlion 12V 100Ah AGM (6-DZM-100)",
+      "image": "https://hotline.ua/img/tx/560/5600815895.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/560/5600815895.jpg"
+      ],
+      "priceUAH": 10679,
+      "rating": 0,
+      "description": "Останні додані товари в каталозі \"Акумулятори для ДБЖ та інверторів\". Порівнюйте характеристики Merlion 12V 100Ah AGM (6-DZM-100) з новинками, виберіть товари, які вас зацікавили, і натисніть «Порівняти».",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/computer-akkumulyatory-dlya-ibp/merlion-12v-100ah-agm-6-dzm-100/"
+        }
+      ],
+      "repairLinks": [],
+      "capacityAh": 100,
+      "voltageV": 12,
+      "chemistry": "Акумулятор для ДБЖ/інвертора",
+      "cyclesCount": 300,
+      "weightKg": 30
+    },
+    {
+      "slug": "litime-lifepo4-12v-100ah-bms-l12v100basic4a100",
       "brand": "LiTime",
-      "model": "12V 100Ah LiFePO4",
-      "image": "https://m.media-amazon.com/images/I/71nNlVBkWML._AC_SL1500_.jpg",
-      "priceUAH": 14500,
-      "rating": 4.7,
-      "description": "Літієвий акумулятор LiTime LiFePO4 100 Аг — 4000+ циклів, вбудована BMS, легка вага.",
+      "model": "Акумулятор для ДБЖ/інвертора LiTime LiFePO4 12V 100Ah BMS (L12V100-BASIC-4-A100)",
+      "image": "https://hotline.ua/img/tx/520/5206325945.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/520/5206325945.jpg",
+        "https://hotline.ua/img/tx/520/5206326125.jpg",
+        "https://hotline.ua/img/tx/520/5206326025.jpg"
+      ],
+      "priceUAH": 10900,
+      "rating": 0,
+      "description": "Акумулятор для ДБЖ/інвертора LiTime LiFePO4 12V 100Ah BMS - це високоефективне рішення для забезпечення стабільної та довговічної роботи ваших енергосистем. Оснащений передовою технологією LiFePO4, цей акумулятор забезпечує високий рівень безпеки, довговічності та відмінну продуктивність. З номінальною напругою 12 В і ємністю 100 А-год (або 1280 Вт-год), він здатний забезпечувати надійну роботу пристроїв, що потребують значних потужностей, таких як інвертори, системи безперебійного живлення та с",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/computer-akkumulyatory-dlya-ibp/litime-lifepo4-12v-100ah-bms/?tab=about"
+        }
+      ],
+      "repairLinks": [],
       "capacityAh": 100,
       "voltageV": 12,
-      "chemistry": "LiFePO4",
+      "chemistry": "Акумулятор для ДБЖ/інвертора",
       "cyclesCount": 4000,
-      "weightKg": 10.2,
-      "buyLinks": [
-        {
-          "name": "Amazon",
-          "url": "https://www.amazon.com/s?k=LiTime+100ah+LiFePO4"
-        },
-        {
-          "name": "Prom.ua",
-          "url": "https://prom.ua/Akkumulyatory?search_term=LiFePO4+100ah"
-        }
-      ],
-      "repairLinks": []
-    },
-    {
-      "slug": "logicpower-agm-100ah",
-      "brand": "LogicPower",
-      "model": "AGM 100Ah 12V",
-      "image": "",
-      "priceUAH": 4800,
-      "rating": 4.3,
-      "description": "AGM акумулятор LogicPower 100 Аг — надійний і доступний для ДБЖ та резервних систем.",
-      "capacityAh": 100,
-      "voltageV": 12,
-      "chemistry": "AGM",
-      "cyclesCount": 500,
-      "weightKg": 28.5,
-      "buyLinks": [
-        {
-          "name": "Rozetka",
-          "url": "https://rozetka.com.ua/search/?text=LogicPower+AGM+100"
-        }
-      ],
-      "repairLinks": []
-    },
-    {
-      "slug": "fiamm-fg21202-gel",
-      "brand": "FIAMM",
-      "model": "FG21202 GEL 12V 120Ah",
-      "image": "https://m.media-amazon.com/images/I/61nqH4KVDTL._AC_SL1000_.jpg",
-      "priceUAH": 8900,
-      "rating": 4.5,
-      "description": "GEL акумулятор FIAMM 120 Аг — підходить для глибокого циклу та сонячних систем.",
-      "capacityAh": 120,
-      "voltageV": 12,
-      "chemistry": "GEL",
-      "cyclesCount": 800,
-      "weightKg": 34,
-      "buyLinks": [
-        {
-          "name": "Rozetka",
-          "url": "https://rozetka.com.ua/search/?text=FIAMM+GEL+120"
-        },
-        {
-          "name": "Prom.ua",
-          "url": "https://prom.ua/Akkumulyatory?search_term=FIAMM+GEL"
-        }
-      ],
-      "repairLinks": []
+      "weightKg": 11
     }
   ]
 }
