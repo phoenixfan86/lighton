@@ -52,6 +52,40 @@ function escapeHtml(str) {
 }
 
 // ─────────────────────────────────────────────────────────────
+// ФУНКЦІЇ ДЛЯ SEO
+// ─────────────────────────────────────────────────────────────
+
+/**
+ * Додає канонічне посилання в head
+ * @param {string} canonicalUrl - Абсолютний URL канонічної сторінки
+ */
+function addCanonicalLink(canonicalUrl) {
+  // Видаляємо старе канонічне посилання, якщо воно є
+  const existingCanonical = document.querySelector('link[rel="canonical"]');
+  if (existingCanonical) {
+    existingCanonical.remove();
+  }
+  
+  // Додаємо нове
+  const link = document.createElement('link');
+  link.rel = 'canonical';
+  link.href = canonicalUrl;
+  document.head.appendChild(link);
+}
+
+/**
+ * Генерує абсолютний URL для товару
+ * @param {string} category - Категорія товару
+ * @param {string} slug - Slug товару
+ * @returns {string} - Абсолютний URL
+ */
+function getProductCanonicalUrl(category, slug) {
+  // Замініть на ваш реальний домен
+  const baseUrl = 'https://lighton.pp.ua';
+  return `${baseUrl}/product.html?category=${category}&slug=${slug}`;
+}
+
+// ─────────────────────────────────────────────────────────────
 // СПЕЦИФІЧНІ ХАРАКТЕРИСТИКИ ДЛЯ КОЖНОГО ТИПУ ПРИСТРОЮ
 // ─────────────────────────────────────────────────────────────
 
@@ -298,6 +332,9 @@ async function renderProductPage() {
     `;
     return;
   }
+
+  const canonicalUrl = getProductCanonicalUrl(category, slug);
+  addCanonicalLink(canonicalUrl);
 
   container.innerHTML = '<div class="loading" style="text-align:center;padding:3rem;">⏳ Завантаження товару...</div>';
 
@@ -783,6 +820,8 @@ async function renderCatalogPage() {
   // Отримати категорію з URL: catalog.html#generators
   const categoryId = (window.location.hash || "").replace("#", "") || "generators";
 
+  const baseUrl = 'https://lighton.pp.ua';
+  addCanonicalLink(`${baseUrl}/catalog.html#${categoryId}`);
 
   // Показати спінер
   container.innerHTML = `<div class="loading">⏳ Завантаження…</div>`;
