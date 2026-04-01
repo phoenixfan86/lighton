@@ -216,6 +216,68 @@ function renderProductCard(item, category) {
 }
 
 // ─────────────────────────────────────────────────────────────
+// РЕНДЕР СХОЖИХ ТОВАРІВ (того ж бренду та категорії)
+// ─────────────────────────────────────────────────────────────
+
+async function renderRelatedProducts(currentProduct, categoryId) {
+  const relatedContainer = document.getElementById("related-products");
+  if (!relatedContainer) return;
+  
+  try {
+    // Завантажуємо всі товари цієї категорії
+    const data = await loadCategory(categoryId);
+    
+    if (!data || !data.items || data.items.length === 0) {
+      relatedContainer.innerHTML = '';
+      return;
+    }
+    
+    // Фільтруємо товари того ж бренду, але виключаємо поточний товар
+    const sameBrandProducts = data.items.filter(item => 
+      item.brand === currentProduct.brand && 
+      item.slug !== currentProduct.slug
+    );
+    
+    // Якщо немає товарів того ж бренду, шукаємо схожі за категорією
+    let relatedProducts = sameBrandProducts;
+    let sectionTitle = `Інші товари бренду ${currentProduct.brand}`;
+    
+    if (sameBrandProducts.length === 0) {
+      // Якщо немає товарів того ж бренду, показуємо інші товари з категорії
+      relatedProducts = data.items
+        .filter(item => item.slug !== currentProduct.slug)
+        .slice(0, 4); // максимум 4 товари
+      sectionTitle = `Інші товари в категорії`;
+    } else {
+      // Обмежуємо до 4 товарів
+      relatedProducts = relatedProducts.slice(0, 4);
+    }
+    
+    // Якщо немає схожих товарів, ховаємо секцію
+    if (relatedProducts.length === 0) {
+      relatedContainer.innerHTML = '';
+      return;
+    }
+    
+    // Рендеримо схожі товари
+    const relatedHtml = `
+      <div class="related-products-section">
+        <h3 class="related-products-title">${sectionTitle}</h3>
+        <div class="related-products-grid">
+          ${relatedProducts.map(item => renderProductCard(item, categoryId)).join('')}
+        </div>
+      </div>
+    `;
+    
+    relatedContainer.innerHTML = relatedHtml;
+    
+  } catch (error) {
+    console.error("Помилка завантаження схожих товарів:", error);
+    relatedContainer.innerHTML = '';
+  }
+}
+
+// ─────────────────────────────────────────────────────────────
 // РЕНДЕР СТОРІНКИ ТОВАРУ (product.html)
 // ─────────────────────────────────────────────────────────────
 
@@ -450,6 +512,8 @@ async function renderProductPage() {
     }
     
     initGallery();
+
+    await renderRelatedProducts(product, category);
     
     const seoDiv = document.getElementById("product-seo-text");
     if (seoDiv) {
@@ -602,6 +666,7 @@ function addImageModal() {
   modal.addEventListener("click", closeModal);
   if (closeBtn) closeBtn.addEventListener("click", closeModal);
 }
+
 
 // ─────────────────────────────────────────────────────────────
 // РЕНДЕР КАРТКИ СТАТТІ

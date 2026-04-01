@@ -599,6 +599,45 @@ ul {
 	}
 }
 
+/* ── СХОЖІ ТОВАРИ ───────────────────────────────────────────────── */
+.related-products-wrapper {
+	margin-top: 3rem;
+	padding-top: 2rem;
+	border-top: 1px solid var(--color-border);
+}
+
+.related-products-section {
+	margin-bottom: 2rem;
+}
+
+.related-products-title {
+	font-size: 1.5rem;
+	font-weight: 600;
+	margin-bottom: 1.5rem;
+	color: var(--color-text);
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.related-products-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	gap: 1.5rem;
+}
+
+/* Адаптація для мобільних */
+@media (max-width: 768px) {
+	.related-products-grid {
+		grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+		gap: 1rem;
+	}
+
+	.related-products-title {
+		font-size: 1.3rem;
+	}
+}
+
 /* ── СТАТТІ ───────────────────────────────────────────────── */
 .articles-grid {
 	display: grid;
