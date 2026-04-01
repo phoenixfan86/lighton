@@ -246,6 +246,7 @@ ul {
 		box-shadow 0.2s,
 		transform 0.15s;
 	display: flex;
+	justify-content: space-between;
 	flex-direction: column;
 }
 .product-card:hover {

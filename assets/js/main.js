@@ -9,6 +9,7 @@
  *   - Рендер статей по ремонту
  *   - Пошук та фільтрація
  *   - Навігація між сторінками (SPA-режим через hash)
+ *   - SEO оптимізація (канонічні посилання, meta tags)
  * ============================================================
  */
 
@@ -52,7 +53,7 @@ function escapeHtml(str) {
 }
 
 // ─────────────────────────────────────────────────────────────
-// ФУНКЦІЇ ДЛЯ SEO
+// ФУНКЦІЇ ДЛЯ SEO (оновлені)
 // ─────────────────────────────────────────────────────────────
 
 /**
@@ -80,9 +81,26 @@ function addCanonicalLink(canonicalUrl) {
  * @returns {string} - Абсолютний URL
  */
 function getProductCanonicalUrl(category, slug) {
-  // Замініть на ваш реальний домен
   const baseUrl = 'https://lighton.pp.ua';
   return `${baseUrl}/product.html?category=${category}&slug=${slug}`;
+}
+
+/**
+ * Додає meta robots для сторінок-дублікатів
+ * @param {boolean} isDuplicate - Чи є сторінка дублікатом
+ */
+function addNoIndexIfDuplicate(isDuplicate) {
+  if (!isDuplicate) return;
+  
+  const existingRobots = document.querySelector('meta[name="robots"]');
+  if (existingRobots) {
+    existingRobots.remove();
+  }
+  
+  const meta = document.createElement('meta');
+  meta.name = 'robots';
+  meta.content = 'noindex, follow';
+  document.head.appendChild(meta);
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -93,7 +111,6 @@ function getProductCanonicalUrl(category, slug) {
 function getSpecs(item, category) {
   const specs = [];
 
-  // Спільні — є у всіх пристроях
   if (item.rating) specs.push(`⭐ ${item.rating}`);
 
   switch (category) {
@@ -142,11 +159,9 @@ function getSpecs(item, category) {
 function getFullSpecs(product, category) {
   const specs = [];
   
-  // Базові характеристики
   if (product.brand) specs.push({ label: "Бренд", value: product.brand });
   if (product.model) specs.push({ label: "Модель", value: product.model });
   
-  // Характеристики за категоріями
   switch (category) {
     case "generators":
       if (product.powerKW) specs.push({ label: "Потужність", value: `${product.powerKW} кВт` });
@@ -196,68 +211,41 @@ function getFullSpecs(product, category) {
   return specs;
 }
 
-/**
- * Додає meta robots для сторінок-дублікатів
- * @param {boolean} isDuplicate - Чи є сторінка дублікатом
- */
-function addNoIndexIfDuplicate(isDuplicate) {
-  if (!isDuplicate) return;
-  
-  const existingRobots = document.querySelector('meta[name="robots"]');
-  if (existingRobots) {
-    existingRobots.remove();
-  }
-  
-  const meta = document.createElement('meta');
-  meta.name = 'robots';
-  meta.content = 'noindex, follow';
-  document.head.appendChild(meta);
-}
-
 // ─────────────────────────────────────────────────────────────
-// РЕНДЕР КАРТКИ ТОВАРУ (з посиланням на детальну сторінку)
+// РЕНДЕР КАРТКИ ТОВАРУ (оновлений з посиланням на всю картку)
 // ─────────────────────────────────────────────────────────────
 
 function renderProductCard(item, category) {
   const specs = getSpecs(item, category);
-  // Перша купівельна посилання (або заглушка)
   const buyLink = item.buyLinks && item.buyLinks.length
     ? item.buyLinks[0]
     : { name: "Знайти", url: "#" };
-  // Посилання на ремонт (якщо є)
   const repairLink = item.repairLinks && item.repairLinks.length
     ? `<a href="${item.repairLinks[0].url}" target="_blank" rel="nofollow" class="secondary">🔧 Ремонт</a>`
     : "";
-
-  // Зображення: запасна заглушка якщо не завантажується
   const imgSrc = item.image || "assets/img/placeholder.svg";
 
   return `
-    
     <div class="product-card" data-slug="${item.slug}" data-category="${category}">
-    <a href="product.html?category=${category}&slug=${item.slug}" class="details-link">
-      <img
-        class="product-card__img"
-        src="${imgSrc}"
-        alt="${item.brand} ${item.model} — фото"
-        onerror="this.src='assets/img/placeholder.svg'"
-        loading="lazy"
-      />
-    </a>
-      <div class="product-card__body">
-        <div class="product-card__brand">${escapeHtml(item.brand)}</div>
-        <div class="product-card__title">${escapeHtml(item.model)}</div>
-        <p class="product-card__desc">${escapeHtml(item.description.substring(0, 150).split(" ").slice(0, -1).join(" "))}...</p>
-        
-        <div class="product-card__specs">
-          ${specs.map(s => `<span>${s}</span>`).join("")}
+      <a href="product.html?category=${category}&slug=${item.slug}" class="product-card-link">
+        <img
+          class="product-card__img"
+          src="${imgSrc}"
+          alt="${item.brand} ${item.model} — фото"
+          onerror="this.src='assets/img/placeholder.svg'"
+          loading="lazy"
+        />
+        <div class="product-card__body">
+          <div class="product-card__brand">${escapeHtml(item.brand)}</div>
+          <div class="product-card__title">${escapeHtml(item.model)}</div>
+          <p class="product-card__desc">${escapeHtml(item.description.substring(0, 150).split(" ").slice(0, -1).join(" "))}...</p>
+          <div class="product-card__specs">
+            ${specs.map(s => `<span>${s}</span>`).join("")}
+          </div>
+          <div class="product-card__price">${formatPrice(item.priceUAH)}</div>
         </div>
-        <div class="product-card__price">${formatPrice(item.priceUAH)}</div>
-      </div>
+      </a>
       <div class="product-card__footer">
-        <a href="product.html?category=${category}&slug=${item.slug}" class="details-link">
-          📖 Детальніше
-        </a>
         <a href="${buyLink.url}" target="_blank" rel="nofollow sponsored">
           🛒 ${buyLink.name}
         </a>
@@ -276,7 +264,6 @@ async function renderRelatedProducts(currentProduct, categoryId) {
   if (!relatedContainer) return;
   
   try {
-    // Завантажуємо всі товари цієї категорії
     const data = await loadCategory(categoryId);
     
     if (!data || !data.items || data.items.length === 0) {
@@ -284,34 +271,28 @@ async function renderRelatedProducts(currentProduct, categoryId) {
       return;
     }
     
-    // Фільтруємо товари того ж бренду, але виключаємо поточний товар
     const sameBrandProducts = data.items.filter(item => 
       item.brand === currentProduct.brand && 
       item.slug !== currentProduct.slug
     );
     
-    // Якщо немає товарів того ж бренду, шукаємо схожі за категорією
     let relatedProducts = sameBrandProducts;
     let sectionTitle = `Інші товари бренду ${currentProduct.brand}`;
     
     if (sameBrandProducts.length === 0) {
-      // Якщо немає товарів того ж бренду, показуємо інші товари з категорії
       relatedProducts = data.items
         .filter(item => item.slug !== currentProduct.slug)
-        .slice(0, 4); // максимум 4 товари
+        .slice(0, 4);
       sectionTitle = `Інші товари в категорії`;
     } else {
-      // Обмежуємо до 4 товарів
       relatedProducts = relatedProducts.slice(0, 4);
     }
     
-    // Якщо немає схожих товарів, ховаємо секцію
     if (relatedProducts.length === 0) {
       relatedContainer.innerHTML = '';
       return;
     }
     
-    // Рендеримо схожі товари
     const relatedHtml = `
       <div class="related-products-section">
         <h3 class="related-products-title">${sectionTitle}</h3>
@@ -330,7 +311,7 @@ async function renderRelatedProducts(currentProduct, categoryId) {
 }
 
 // ─────────────────────────────────────────────────────────────
-// РЕНДЕР СТОРІНКИ ТОВАРУ (product.html)
+// РЕНДЕР СТОРІНКИ ТОВАРУ (product.html) - ОНОВЛЕНА ВЕРСІЯ
 // ─────────────────────────────────────────────────────────────
 
 async function renderProductPage() {
@@ -341,37 +322,42 @@ async function renderProductPage() {
   const category = urlParams.get("category");
   const slug = urlParams.get("slug");
 
+  // ВАЖЛИВО: валідація параметрів з нормалізацією
   if (!category || !slug) {
     container.innerHTML = `
       <div class="error-message" style="text-align:center;padding:3rem;">
-        ❌ Некоректне посилання на товар.<br>
+        ❌ Некоректне посилання на товар. Перевірте URL.<br>
         <a href="catalog.html" style="color: var(--color-primary);">Повернутися до каталогу</a>
       </div>
     `;
     return;
   }
 
- // ДОДАЄМО ПЕРЕВІРКУ НА ДУБЛІКАТИ
-  // Перевіряємо чи є зайві параметри в URL
+  // ВАЖЛИВО: перевірка чи категорія валідна
+  const validCategories = ['generators', 'inverters', 'solar-panels', 'batteries', 'power-stations'];
+  if (!validCategories.includes(category)) {
+    container.innerHTML = `
+      <div class="error-message" style="text-align:center;padding:3rem;">
+        ❌ Невідома категорія: "${category}".<br>
+        <a href="catalog.html" style="color: var(--color-primary);">Повернутися до каталогу</a>
+      </div>
+    `;
+    return;
+  }
+
+  // ВАЖЛИВО: нормалізація URL - видаляємо зайві параметри та додаємо canonical
+  const baseUrl = 'https://lighton.pp.ua';
+  const canonicalUrl = `${baseUrl}/product.html?category=${category}&slug=${slug}`;
+  
+  addCanonicalLink(canonicalUrl);
+  
+  // Якщо є зайві параметри - додаємо noindex для дублікатів
   const currentUrl = new URL(window.location.href);
   const requiredParams = ['category', 'slug'];
   const extraParams = Array.from(currentUrl.searchParams.keys()).filter(p => !requiredParams.includes(p));
-  
-  const baseUrl = 'https://lighton.pp.ua';
-  const canonicalUrl = `${baseUrl}/product.html?category=${category}&slug=${slug}`;
-
-  // Якщо є зайві параметри або неправильний порядок - додаємо канонічне посилання
-  if (extraParams.length > 0 || window.location.href !== canonicalUrl) {
-    addCanonicalLink(canonicalUrl);
-    
-    // Додаємо meta robots для запобігання індексації дублікатів
-    addNoIndexIfDuplicate(extraParams.length > 0);
-  } else {
-    addCanonicalLink(canonicalUrl);
+  if (extraParams.length > 0) {
+    addNoIndexIfDuplicate(true);
   }
-
-  // const canonicalUrl = getProductCanonicalUrl(category, slug);
-  // addCanonicalLink(canonicalUrl);
 
   container.innerHTML = '<div class="loading" style="text-align:center;padding:3rem;">⏳ Завантаження товару...</div>';
 
@@ -385,8 +371,6 @@ async function renderProductPage() {
     };
 
     const filename = fileMap[category];
-    if (!filename) throw new Error("Категорію не знайдено");
-
     const data = await fetchJson(filename);
     const product = data.items.find(item => item.slug === slug);
 
@@ -407,22 +391,24 @@ async function renderProductPage() {
       "batteries": "Акумулятори",
       "power-stations": "Зарядні станції"
     };
+    const categoryName = categoryNames[category] || category;
 
-    document.title = `${product.model} | LightOn`;
+    // ВАЖЛИВО: title тепер містить бренд і модель
+    document.title = `${product.brand} ${product.model} | LightOn`;
+    
+    // ВАЖЛИВО: meta description з брендом та моделлю
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-      metaDesc.setAttribute("content", product.description?.substring(0, 160) || `${product.model} повні характеристики, відеоогляди та де купити ${categoryNames[category]} в Україні. Поради з обслуговування та ремонту на порталі LightOn.`);
+      metaDesc.setAttribute("content", product.description?.substring(0, 160) || `${product.brand} ${product.model} — ${categoryName.toLowerCase()}. Характеристики, ціни в Україні, де купити та ремонт на порталі LightOn.`);
     }
 
-    
-    
-    const categoryName = categoryNames[category] || category;
     const breadcrumbCatalog = document.getElementById("breadcrumb-catalog");
     const breadcrumbCategory = document.getElementById("breadcrumb-category");
     const breadcrumbProduct = document.getElementById("breadcrumb-product");
     
     if (breadcrumbCatalog) breadcrumbCatalog.href = `catalog.html#${category}`;
     if (breadcrumbCategory) breadcrumbCategory.textContent = categoryName;
+    // ВАЖЛИВО: breadcrumb містить бренд і модель
     if (breadcrumbProduct) breadcrumbProduct.textContent = `${product.brand} ${product.model}`;
 
     const galleryImages = [];
@@ -431,7 +417,6 @@ async function renderProductPage() {
       galleryImages.push(...product.images);
     }
 
-    // Галерея
     const galleryHtml = galleryImages.length > 0 ? `
       <div class="product-gallery-container">
         <div class="gallery-main">
@@ -474,11 +459,12 @@ async function renderProductPage() {
 
     const specs = getFullSpecs(product, category);
 
+    // ВАЖЛИВО: додано H1 з брендом і моделлю
     container.innerHTML = `
       <div class="product-info">
         ${galleryHtml}
         
-        <h1>${escapeHtml(product.model)}</h1>
+        <h1>${escapeHtml(product.brand)} ${escapeHtml(product.model)}</h1>
         
         <div class="product-price">
         <span>Ціна від</span>
@@ -526,7 +512,6 @@ async function renderProductPage() {
       </div>
     `;
     
-    // Ініціалізація галереї після вставки HTML
     function initGallery() {
       const mainImage = document.getElementById('galleryMainImage');
       const thumbnails = document.querySelectorAll('.gallery-thumbnail');
@@ -560,13 +545,8 @@ async function renderProductPage() {
         }
       }
       
-      if (prevBtn) {
-        prevBtn.addEventListener('click', () => updateMainImage(currentIndex - 1));
-      }
-      
-      if (nextBtn) {
-        nextBtn.addEventListener('click', () => updateMainImage(currentIndex + 1));
-      }
+      if (prevBtn) prevBtn.addEventListener('click', () => updateMainImage(currentIndex - 1));
+      if (nextBtn) nextBtn.addEventListener('click', () => updateMainImage(currentIndex + 1));
       
       thumbnails.forEach((thumb, index) => {
         thumb.addEventListener('click', () => updateMainImage(index));
@@ -577,11 +557,9 @@ async function renderProductPage() {
         else if (e.key === 'ArrowRight') updateMainImage(currentIndex + 1);
       });
       
-      if (prevBtn && nextBtn) {
-        if (totalImages <= 1) {
-          prevBtn.style.display = 'none';
-          nextBtn.style.display = 'none';
-        }
+      if (prevBtn && nextBtn && totalImages <= 1) {
+        prevBtn.style.display = 'none';
+        nextBtn.style.display = 'none';
       }
     }
     
@@ -597,103 +575,83 @@ async function renderProductPage() {
       `;
     }
 
-    // const moreProduct = document.getElementById("more-product");
-    // const moreResult = renderItems(filterProducts(data.items, product.brand));
-    
-    // if(moreProduct){
-    //   moreProduct.innerHTML=`
-    //   <div>
-    //   <h3>Інші моделі бренду ${product.brand}</h3>
-    //   ${moreResult}
-    //   </div>`
-    // }
+    // ─────────────────────────────────────────────────────────────
+    // SCHEMA (оновлений)
+    // ─────────────────────────────────────────────────────────────
+    function injectBreadcrumbs(categorySlug, categoryName, productName, productSlug) {
+        const baseUrl = "https://lighton.pp.ua";
+        
+        const breadcrumbSchema = {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Головна",
+                    "item": `${baseUrl}/`
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Каталог",
+                    "item": `${baseUrl}/catalog.html`
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": categoryName,
+                    "item": `${baseUrl}/catalog.html#${categorySlug}`
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 4,
+                    "name": productName,
+                    "item": `${baseUrl}/product.html?category=${categorySlug}&slug=${productSlug}`
+                }
+            ]
+        };
 
-// ─────────────────────────────────────────────────────────────
-// SCHEMA
-// ─────────────────────────────────────────────────────────────
-function injectBreadcrumbs(categorySlug, categoryName, productName, productSlug) {
-    const baseUrl = "https://lighton.pp.ua";
-    
-    const breadcrumbSchema = {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Головна",
-                "item": `${baseUrl}/`
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Каталог",
-                "item": `${baseUrl}/catalog.html`
-            },
-            {
-                "@type": "ListItem",
-                "position": 3,
-                "name": categoryName,
-                "item": `${baseUrl}/catalog.html#${categorySlug}`
-            },
-            {
-                "@type": "ListItem",
-                "position": 4,
-                "name": productName,
-                // Формуємо чисте посилання для індексації, а не беремо локальне з браузера
-                "item": `${baseUrl}/product.html?category=${categorySlug}&slug=${productSlug}`
-            }
-        ]
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.text = JSON.stringify(breadcrumbSchema);
+        document.head.appendChild(script);
+    }
+
+    const currentCatName = categoryNames[category] || "Каталог";
+    injectBreadcrumbs(category, currentCatName, `${product.brand} ${product.model}`, slug);
+
+    // ВАЖЛИВО: schemaData оновлено з брендом
+    const schemaData = {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": `${product.brand} ${product.model}`,
+      "image": product.image,
+      "description": product.description,
+      "brand": {
+        "@type": "Brand",
+        "name": product.brand
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": canonicalUrl,
+        "priceCurrency": "UAH",
+        "price": product.priceUAH,
+        "itemCondition": "https://schema.org/NewCondition",
+        "availability": "https://schema.org/InStock"
+      }
     };
-
+    
+    // Додаємо характеристики в schema
+    const additionalProps = [];
+    if (product.powerKW) additionalProps.push({ "@type": "PropertyValue", "name": "Потужність", "value": `${product.powerKW} кВт` });
+    if (product.fuelType) additionalProps.push({ "@type": "PropertyValue", "name": "Тип палива", "value": product.fuelType });
+    if (additionalProps.length > 0) schemaData.additionalProperty = additionalProps;
+    
     const script = document.createElement('script');
     script.type = 'application/ld+json';
-    script.text = JSON.stringify(breadcrumbSchema);
+    script.text = JSON.stringify(schemaData);
     document.head.appendChild(script);
-}
-
-const currentCatName = categoryNames[urlParams.category] || "Каталог";
-
-// Викликаємо функцію
-injectBreadcrumbs(category, currentCatName, product.model, slug);
-
-const schemaData = {
-  "@context": "https://schema.org/",
-  "@type": "Product",
-  "name": product.model,
-  "image": product.image,
-  "description": product.description,
-  "brand": {
-    "@type": "Brand",
-    "name": product.brand
-  },
-  "offers": {
-    "@type": "Offer",
-    "url": window.location.href,
-    "priceCurrency": "UAH",
-    "price": product.priceUAH,
-    "itemCondition": "https://schema.org/NewCondition",
-    "availability": "https://schema.org/InStock"
-  },
-  "additionalProperty": [
-    {
-      "@type": "PropertyValue",
-      "name": "Потужність",
-      "value": product.powerKW + " кВт"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Тип палива",
-      "value": product.fuelType
-    }
-  ]
-};
-
-// Вставка в <head>
-const script = document.createElement('script');
-script.type = 'application/ld+json';
-script.text = JSON.stringify(schemaData);
-document.head.appendChild(script);
     
     addImageModal();
     
@@ -708,7 +666,9 @@ document.head.appendChild(script);
   }
 }
 
-
+// ─────────────────────────────────────────────────────────────
+// МОДАЛЬНЕ ВІКНО ДЛЯ ЗОБРАЖЕНЬ
+// ─────────────────────────────────────────────────────────────
 
 function addImageModal() {
   if (document.getElementById("image-modal")) return;
@@ -740,7 +700,6 @@ function addImageModal() {
   modal.addEventListener("click", closeModal);
   if (closeBtn) closeBtn.addEventListener("click", closeModal);
 }
-
 
 // ─────────────────────────────────────────────────────────────
 // РЕНДЕР КАРТКИ СТАТТІ
@@ -792,13 +751,13 @@ function filterProducts(items, query) {
 // ─────────────────────────────────────────────────────────────
 // РЕНДЕР КОРОТКОГО ОГЛЯДУ (short) - останні 4 товари з кожної категорії
 // ─────────────────────────────────────────────────────────────
+
 async function renderShort() {
   const shortContainer = document.getElementById("short-cat");
   if (!shortContainer) return;
   
   shortContainer.innerHTML = `<div class="loading">⏳ Завантаження короткого огляду…</div>`;
   
-  // Список всіх категорій
   const categories = [
     { id: "generators", label: "Генератори", icon: "⚡" },
     { id: "inverters", label: "Інвертори", icon: "🔄" },
@@ -814,7 +773,6 @@ async function renderShort() {
       const data = await loadCategory(cat.id);
       
       if (data && data.items && data.items.length > 0) {
-        // Беремо останні 4 товари (з кінця масиву)
         const latestItems = data.items.slice(-4).reverse();
         
         allCategoriesHtml += `
@@ -854,25 +812,21 @@ async function renderCatalogPage() {
   const searchInput = document.getElementById("catalog-search");
   if (!container) return;
 
-  // Отримати категорію з URL: catalog.html#generators
   const categoryId = (window.location.hash || "").replace("#", "") || "generators";
 
   const baseUrl = 'https://lighton.pp.ua';
   addCanonicalLink(`${baseUrl}/catalog.html#${categoryId}`);
 
-  // Показати спінер
   container.innerHTML = `<div class="loading">⏳ Завантаження…</div>`;
 
   try {
     const data = await loadCategory(categoryId);
     if (!data) throw new Error("Категорію не знайдено");
 
-    // Встановити SEO-заголовок і breadcrumb
     if (title)      title.textContent = data.h1;
     if (breadcrumb) breadcrumb.textContent = data.categoryLabel;
     document.title = data.metaTitle;
 
-    // Рендер усіх товарів
     let currentItems = data.items;
 
     const renderItems = (items) => {
@@ -883,9 +837,7 @@ async function renderCatalogPage() {
 
     renderItems(currentItems);
 
-    // Пошук у реальному часі
     if (searchInput) {
-      // Видаляємо старий listener, якщо є
       const newSearchInput = searchInput.cloneNode(true);
       searchInput.parentNode.replaceChild(newSearchInput, searchInput);
       
@@ -907,10 +859,8 @@ async function renderHomePage() {
   const artContainer = document.getElementById("home-articles");
   if (!catContainer) return;
 
-  // Завантажити індекс категорій
   const index = await fetchJson("index.json");
 
-  // Рендер категорій
   catContainer.innerHTML = index.categories.map(cat => `
     <a href="catalog.html#${cat.id}" class="category-card">
       <div class="icon">${cat.icon}</div>
@@ -918,7 +868,6 @@ async function renderHomePage() {
     </a>
   `).join("");
 
-  // Завантажити та показати останні статті
   if (artContainer) {
     const articlesData = await fetchJson("repair-articles.json");
     const cards = [];
@@ -941,7 +890,6 @@ async function renderArticlePage() {
   const container = document.getElementById("article-container");
   if (!container) return;
 
-  // Hash формат: #generators/generator-ne-zapuskayetsya
   const hash = window.location.hash.replace("#", "");
   const [categoryId, articleSlug] = hash.split("/");
 
@@ -957,26 +905,21 @@ async function renderArticlePage() {
 
     if (!article) throw new Error("Статтю не знайдено");
 
-    // SEO
     document.title = article.metaTitle;
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) metaDesc.setAttribute("content", article.metaDescription);
 
-    // Рендер
     const sections = article.sections.map(s => `
       <h2>${s.h2}</h2>
       <p>${s.text}</p>
     `).join("");
 
-    // Keywords як теги
     const tags = article.keywords.map(k =>
       `<span style="display:inline-block;background:#f0f0f0;padding:0.2rem 0.6rem;border-radius:4px;font-size:0.8rem;margin:0.2rem;">${k}</span>`
     ).join("");
 
     container.innerHTML = `
-      
       <article class="article-page">
-        
         <nav class="breadcrumb">
           <a href="index.html">Головна</a><span>›</span>
           <a href="repair.html#${categoryId}">${catObj ? catObj.label : categoryId}</a><span>›</span>
@@ -986,19 +929,16 @@ async function renderArticlePage() {
         <h1>${article.title}</h1>
         <p class="intro">${article.intro}</p>
 
-        
         <div class="ad-slot ad-slot-leaderboard" id="ad-article-top">
           [Реклама]
         </div>
 
         ${sections}
 
-        
         <div style="margin-top:2rem;">
           <strong>Теги:</strong> ${tags}
         </div>
 
-        
         <div class="ad-slot ad-slot-leaderboard" id="ad-article-bottom">
           [Реклама]
         </div>
@@ -1027,10 +967,8 @@ async function renderRepairPage() {
     fetchJson("index.json"),
   ]);
 
-  // Визначити активну категорію з hash
   let activeCat = (window.location.hash || "").replace("#", "") || index.categories[0].id;
 
-  // Рендер вкладок (фільтри)
   if (tabsEl) {
     tabsEl.innerHTML = index.categories.map(cat => `
       <button
@@ -1050,7 +988,6 @@ async function renderRepairPage() {
     });
   }
 
-  // Рендер статей активної категорії
   const renderArticles = () => {
     const articles = articlesData.articles[activeCat] || [];
     const catObj   = index.categories.find(c => c.id === activeCat);
@@ -1066,10 +1003,8 @@ async function renderRepairPage() {
 
 // ─────────────────────────────────────────────────────────────
 // ІНІЦІАЛІЗАЦІЯ
-// Визначаємо яка сторінка завантажена і запускаємо потрібний рендер
 // ─────────────────────────────────────────────────────────────
 
-// Робимо функції глобальними для виклику з HTML
 window.renderCatalogPage = renderCatalogPage;
 window.renderProductPage = renderProductPage;
 window.renderShort = renderShort;
@@ -1085,7 +1020,6 @@ document.addEventListener("DOMContentLoaded", () => {
     case "product": renderProductPage(); break;
   }
 
-  // Активна навігація
   const navLinks = document.querySelectorAll(".site-nav a");
   navLinks.forEach(link => {
     if (link.href === window.location.href.split("#")[0]) {
