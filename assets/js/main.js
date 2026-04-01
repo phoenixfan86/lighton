@@ -322,7 +322,6 @@ async function renderProductPage() {
   const category = urlParams.get("category");
   const slug = urlParams.get("slug");
 
-  // ВАЖЛИВО: валідація параметрів з нормалізацією
   if (!category || !slug) {
     container.innerHTML = `
       <div class="error-message" style="text-align:center;padding:3rem;">
@@ -333,7 +332,6 @@ async function renderProductPage() {
     return;
   }
 
-  // ВАЖЛИВО: перевірка чи категорія валідна
   const validCategories = ['generators', 'inverters', 'solar-panels', 'batteries', 'power-stations'];
   if (!validCategories.includes(category)) {
     container.innerHTML = `
@@ -345,13 +343,10 @@ async function renderProductPage() {
     return;
   }
 
-  // ВАЖЛИВО: нормалізація URL - видаляємо зайві параметри та додаємо canonical
   const baseUrl = 'https://lighton.pp.ua';
   const canonicalUrl = `${baseUrl}/product.html?category=${category}&slug=${slug}`;
-  
   addCanonicalLink(canonicalUrl);
   
-  // Якщо є зайві параметри - додаємо noindex для дублікатів
   const currentUrl = new URL(window.location.href);
   const requiredParams = ['category', 'slug'];
   const extraParams = Array.from(currentUrl.searchParams.keys()).filter(p => !requiredParams.includes(p));
@@ -393,13 +388,21 @@ async function renderProductPage() {
     };
     const categoryName = categoryNames[category] || category;
 
-    // ВАЖЛИВО: title тепер містить бренд і модель
-    document.title = `${product.brand} ${product.model} | LightOn`;
+    // ========== ВИПРАВЛЕННЯ: формуємо H1 без подвійного повторення бренду ==========
+    let productTitle = '';
+    if (product.model && product.model.toLowerCase().includes(product.brand.toLowerCase())) {
+      // Якщо модель вже містить бренд, показуємо тільки модель
+      productTitle = product.model;
+    } else {
+      // Інакше показуємо бренд + модель
+      productTitle = `${product.brand} ${product.model}`;
+    }
     
-    // ВАЖЛИВО: meta description з брендом та моделлю
+    document.title = `${productTitle} | LightOn`;
+    
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-      metaDesc.setAttribute("content", product.description?.substring(0, 160) || `${product.brand} ${product.model} — ${categoryName.toLowerCase()}. Характеристики, ціни в Україні, де купити та ремонт на порталі LightOn.`);
+      metaDesc.setAttribute("content", product.description?.substring(0, 160) || `${productTitle} — ${categoryName.toLowerCase()}. Характеристики, ціни в Україні, де купити та ремонт на порталі LightOn.`);
     }
 
     const breadcrumbCatalog = document.getElementById("breadcrumb-catalog");
@@ -408,8 +411,7 @@ async function renderProductPage() {
     
     if (breadcrumbCatalog) breadcrumbCatalog.href = `catalog.html#${category}`;
     if (breadcrumbCategory) breadcrumbCategory.textContent = categoryName;
-    // ВАЖЛИВО: breadcrumb містить бренд і модель
-    if (breadcrumbProduct) breadcrumbProduct.textContent = `${product.brand} ${product.model}`;
+    if (breadcrumbProduct) breadcrumbProduct.textContent = productTitle;
 
     const galleryImages = [];
     if (product.image) galleryImages.push(product.image);
@@ -459,12 +461,11 @@ async function renderProductPage() {
 
     const specs = getFullSpecs(product, category);
 
-    // ВАЖЛИВО: додано H1 з брендом і моделлю
     container.innerHTML = `
       <div class="product-info">
         ${galleryHtml}
         
-        <h1>${escapeHtml(product.brand)} ${escapeHtml(product.model)}</h1>
+        <h1>${escapeHtml(productTitle)}</h1>
         
         <div class="product-price">
         <span>Ціна від</span>
@@ -575,9 +576,7 @@ async function renderProductPage() {
       `;
     }
 
-    // ─────────────────────────────────────────────────────────────
-    // SCHEMA (оновлений)
-    // ─────────────────────────────────────────────────────────────
+    // Schema з оновленим ім'ям товару
     function injectBreadcrumbs(categorySlug, categoryName, productName, productSlug) {
         const baseUrl = "https://lighton.pp.ua";
         
@@ -619,13 +618,12 @@ async function renderProductPage() {
     }
 
     const currentCatName = categoryNames[category] || "Каталог";
-    injectBreadcrumbs(category, currentCatName, `${product.brand} ${product.model}`, slug);
+    injectBreadcrumbs(category, currentCatName, productTitle, slug);
 
-    // ВАЖЛИВО: schemaData оновлено з брендом
     const schemaData = {
       "@context": "https://schema.org/",
       "@type": "Product",
-      "name": `${product.brand} ${product.model}`,
+      "name": productTitle,
       "image": product.image,
       "description": product.description,
       "brand": {
@@ -642,7 +640,6 @@ async function renderProductPage() {
       }
     };
     
-    // Додаємо характеристики в schema
     const additionalProps = [];
     if (product.powerKW) additionalProps.push({ "@type": "PropertyValue", "name": "Потужність", "value": `${product.powerKW} кВт` });
     if (product.fuelType) additionalProps.push({ "@type": "PropertyValue", "name": "Тип палива", "value": product.fuelType });
