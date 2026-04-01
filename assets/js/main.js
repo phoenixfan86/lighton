@@ -227,7 +227,7 @@ function renderProductCard(item, category) {
 
   return `
     <div class="product-card" data-slug="${item.slug}" data-category="${category}">
-      <a href="product.html?category=${category}&slug=${item.slug}" class="product-card-link">
+      <a href="products/${category}/${item.slug}.html" class="product-card-link">
         <img
           class="product-card__img"
           src="${imgSrc}"
@@ -246,6 +246,9 @@ function renderProductCard(item, category) {
         </div>
       </a>
       <div class="product-card__footer">
+        <a href="products/${category}/${item.slug}.html" class="details-link">
+          📖 Детальніше
+        </a>
         <a href="${buyLink.url}" target="_blank" rel="nofollow sponsored">
           🛒 ${buyLink.name}
         </a>
