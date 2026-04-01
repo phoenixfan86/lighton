@@ -196,6 +196,24 @@ function getFullSpecs(product, category) {
   return specs;
 }
 
+/**
+ * Додає meta robots для сторінок-дублікатів
+ * @param {boolean} isDuplicate - Чи є сторінка дублікатом
+ */
+function addNoIndexIfDuplicate(isDuplicate) {
+  if (!isDuplicate) return;
+  
+  const existingRobots = document.querySelector('meta[name="robots"]');
+  if (existingRobots) {
+    existingRobots.remove();
+  }
+  
+  const meta = document.createElement('meta');
+  meta.name = 'robots';
+  meta.content = 'noindex, follow';
+  document.head.appendChild(meta);
+}
+
 // ─────────────────────────────────────────────────────────────
 // РЕНДЕР КАРТКИ ТОВАРУ (з посиланням на детальну сторінку)
 // ─────────────────────────────────────────────────────────────
@@ -333,8 +351,27 @@ async function renderProductPage() {
     return;
   }
 
-  const canonicalUrl = getProductCanonicalUrl(category, slug);
-  addCanonicalLink(canonicalUrl);
+ // ДОДАЄМО ПЕРЕВІРКУ НА ДУБЛІКАТИ
+  // Перевіряємо чи є зайві параметри в URL
+  const currentUrl = new URL(window.location.href);
+  const requiredParams = ['category', 'slug'];
+  const extraParams = Array.from(currentUrl.searchParams.keys()).filter(p => !requiredParams.includes(p));
+  
+  const baseUrl = 'https://lighton.pp.ua';
+  const canonicalUrl = `${baseUrl}/product.html?category=${category}&slug=${slug}`;
+
+  // Якщо є зайві параметри або неправильний порядок - додаємо канонічне посилання
+  if (extraParams.length > 0 || window.location.href !== canonicalUrl) {
+    addCanonicalLink(canonicalUrl);
+    
+    // Додаємо meta robots для запобігання індексації дублікатів
+    addNoIndexIfDuplicate(extraParams.length > 0);
+  } else {
+    addCanonicalLink(canonicalUrl);
+  }
+
+  // const canonicalUrl = getProductCanonicalUrl(category, slug);
+  // addCanonicalLink(canonicalUrl);
 
   container.innerHTML = '<div class="loading" style="text-align:center;padding:3rem;">⏳ Завантаження товару...</div>';
 
