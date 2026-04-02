@@ -6,7 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Товар — LightOn</title>
   <meta name="description" content="Детальна інформація про товар" />
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const category = params.get('category');
+      const slug = params.get('slug');
+      if (category && slug) {
+        const target = `products/${category}/${slug}.html`;
+
+        const link = document.createElement('link');
+        link.rel = 'canonical';
+        link.href = window.location.origin + '/' + target;
+        document.head.appendChild(link);
+
+        window.location.replace(target);
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="assets/css/style.css" />
   <style>
 
