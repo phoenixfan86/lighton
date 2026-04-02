@@ -165,6 +165,13 @@ async function renderCatalogPage() {
   if (!container) return;
 
   const categoryId = (window.location.hash || "").replace("#", "") || "generators";
+
+  // Оновлення канонікалу при зміні категорії
+  const canonicalEl = document.getElementById("canonical-url");
+  if (canonicalEl) {
+    canonicalEl.href = `https://lighton.pp.ua/catalog.html#${categoryId}`;
+  }
+
   container.innerHTML = `<div class="loading">⏳ Завантаження…</div>`;
 
   try {
@@ -173,7 +180,58 @@ async function renderCatalogPage() {
 
     if (title) title.textContent = data.h1;
     if (breadcrumb) breadcrumb.textContent = data.categoryLabel;
+
+    // Оновлення <title> і <meta description>
     document.title = data.metaTitle;
+    const pageTitle = document.getElementById("page-title");
+    if (pageTitle) pageTitle.textContent = data.metaTitle;
+
+    const metaDesc = document.getElementById("page-description");
+    if (metaDesc && data.metaDescription) {
+      metaDesc.setAttribute("content", data.metaDescription);
+    }
+
+    // Оновлення Schema BreadcrumbList
+    const schemaBreadcrumb = document.getElementById("schema-breadcrumb");
+    if (schemaBreadcrumb) {
+      schemaBreadcrumb.textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Головна", "item": "https://lighton.pp.ua/" },
+          { "@type": "ListItem", "position": 2, "name": "Каталог", "item": "https://lighton.pp.ua/catalog.html" },
+          { "@type": "ListItem", "position": 3, "name": data.categoryLabel, "item": `https://lighton.pp.ua/catalog.html#${categoryId}` }
+        ]
+      });
+    }
+
+    // Оновлення Schema CollectionPage з товарами
+    const schemaCollection = document.getElementById("schema-collection");
+    if (schemaCollection && data.items) {
+      schemaCollection.textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": data.metaTitle,
+        "description": data.metaDescription || "",
+        "url": `https://lighton.pp.ua/catalog.html#${categoryId}`,
+        "publisher": {
+          "@type": "Organization",
+          "name": "LightOn",
+          "url": "https://lighton.pp.ua"
+        },
+        "hasPart": data.items.map(item => ({
+          "@type": "Product",
+          "name": `${item.brand} ${item.model}`,
+          "url": `https://lighton.pp.ua/products/${categoryId}/${item.slug}.html`,
+          "offers": item.priceUAH ? {
+            "@type": "Offer",
+            "price": item.priceUAH,
+            "priceCurrency": "UAH",
+            "availability": "https://schema.org/InStock"
+          } : undefined
+        }))
+      });
+    }
 
     const renderItems = (items) => {
       container.innerHTML = items.length
@@ -354,6 +412,129 @@ function redirectProductPage() {
     window.location.replace(`products/${category}/${slug}.html`);
   }
 }
+
+// ─────────────────────────────────────────────────────────────
+// ФУНКЦІЯ ГАЛЕРЕЇ (працює на всіх сторінках)
+// ─────────────────────────────────────────────────────────────
+
+function initGallery() {
+  const mainImage = document.getElementById('galleryMainImage');
+  const thumbnails = document.querySelectorAll('.gallery-thumbnail');
+  const prevBtn = document.getElementById('galleryPrev');
+  const nextBtn = document.getElementById('galleryNext');
+  
+  if (!mainImage) return;
+  
+  let currentIndex = 0;
+  const totalImages = thumbnails.length;
+  
+  if (totalImages === 0) return;
+  
+  function updateMainImage(index) {
+    if (index < 0) index = 0;
+    if (index >= totalImages) index = totalImages - 1;
+    currentIndex = index;
+    const newSrc = thumbnails[currentIndex].src;
+    mainImage.src = newSrc;
+    
+    thumbnails.forEach((thumb, i) => {
+      if (i === currentIndex) {
+        thumb.classList.add('active');
+      } else {
+        thumb.classList.remove('active');
+      }
+    });
+    
+    if (thumbnails[currentIndex]) {
+      thumbnails[currentIndex].scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'nearest', 
+        inline: 'center' 
+      });
+    }
+  }
+  
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => updateMainImage(currentIndex - 1));
+  }
+  
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => updateMainImage(currentIndex + 1));
+  }
+  
+  thumbnails.forEach((thumb, index) => {
+    thumb.addEventListener('click', () => updateMainImage(index));
+  });
+  
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+      updateMainImage(currentIndex - 1);
+    } else if (e.key === 'ArrowRight') {
+      updateMainImage(currentIndex + 1);
+    }
+  });
+  
+  if (prevBtn && nextBtn && totalImages <= 1) {
+    prevBtn.style.display = 'none';
+    nextBtn.style.display = 'none';
+  }
+}
+
+// Функція для відкриття модального вікна зображення
+window.openImageModal = function(src) {
+  const modal = document.createElement('div');
+  modal.style.position = 'fixed';
+  modal.style.top = '0';
+  modal.style.left = '0';
+  modal.style.width = '100%';
+  modal.style.height = '100%';
+  modal.style.backgroundColor = 'rgba(0,0,0,0.95)';
+  modal.style.zIndex = '10000';
+  modal.style.cursor = 'pointer';
+  modal.onclick = () => modal.remove();
+  
+  const img = document.createElement('img');
+  img.src = src;
+  img.style.position = 'absolute';
+  img.style.top = '50%';
+  img.style.left = '50%';
+  img.style.transform = 'translate(-50%, -50%)';
+  img.style.maxWidth = '90%';
+  img.style.maxHeight = '90%';
+  img.style.objectFit = 'contain';
+  
+  modal.appendChild(img);
+  document.body.appendChild(modal);
+};
+
+// ─────────────────────────────────────────────────────────────
+// ІНІЦІАЛІЗАЦІЯ
+// ─────────────────────────────────────────────────────────────
+
+// Запускаємо галерею після завантаження DOM (для статичних сторінок)
+document.addEventListener("DOMContentLoaded", () => {
+  // Ініціалізуємо галерею, якщо є елементи
+  initGallery();
+  
+  // Визначаємо тип сторінки
+  const page = document.body.dataset.page;
+  
+  switch (page) {
+    case "home":    renderHomePage();    break;
+    case "catalog": renderCatalogPage(); break;
+    case "repair":  renderRepairPage();  break;
+    case "article": renderArticlePage(); break;
+    case "product": renderProductPage(); break;
+  }
+  
+  // Активна навігація
+  const navLinks = document.querySelectorAll(".site-nav a");
+  navLinks.forEach(link => {
+    if (link.href === window.location.href.split("#")[0]) {
+      link.classList.add("active");
+    }
+  });
+});
 
 // ─────────────────────────────────────────────────────────────
 // ІНІЦІАЛІЗАЦІЯ
