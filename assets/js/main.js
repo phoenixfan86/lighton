@@ -37,6 +37,17 @@ function escapeHtml(str) {
     .replace(/'/g, '&#39;');
 }
 
+function addCanonicalLink(url) {
+  let canonical = document.getElementById("canonical-url");
+  if (!canonical) {
+    canonical = document.createElement("link");
+    canonical.rel = "canonical";
+    canonical.id = "canonical-url";
+    document.head.appendChild(canonical);
+  }
+  canonical.href = url;
+}
+
 // ─────────────────────────────────────────────────────────────
 // СПЕЦИФІЧНІ ХАРАКТЕРИСТИКИ
 // ─────────────────────────────────────────────────────────────
@@ -158,19 +169,14 @@ function filterProducts(items, query) {
 // ─────────────────────────────────────────────────────────────
 
 async function renderCatalogPage() {
-  const container = document.getElementById("catalog-container");
-  const title = document.getElementById("catalog-title");
+  const container  = document.getElementById("catalog-container");
+  const title      = document.getElementById("catalog-title");
   const breadcrumb = document.getElementById("breadcrumb-cat");
-  const searchInput = document.getElementById("catalog-search");
   if (!container) return;
 
   const categoryId = (window.location.hash || "").replace("#", "") || "generators";
-
-  // Оновлення канонікалу при зміні категорії
-  const canonicalEl = document.getElementById("canonical-url");
-  if (canonicalEl) {
-    canonicalEl.href = `https://lighton.pp.ua/catalog.html#${categoryId}`;
-  }
+  const baseUrl = 'https://lighton.pp.ua';
+  addCanonicalLink(`${baseUrl}/catalog.html#${categoryId}`);
 
   container.innerHTML = `<div class="loading">⏳ Завантаження…</div>`;
 
@@ -178,60 +184,9 @@ async function renderCatalogPage() {
     const data = await loadCategory(categoryId);
     if (!data) throw new Error("Категорію не знайдено");
 
-    if (title) title.textContent = data.h1;
+    if (title)      title.textContent = data.h1;
     if (breadcrumb) breadcrumb.textContent = data.categoryLabel;
-
-    // Оновлення <title> і <meta description>
     document.title = data.metaTitle;
-    const pageTitle = document.getElementById("page-title");
-    if (pageTitle) pageTitle.textContent = data.metaTitle;
-
-    const metaDesc = document.getElementById("page-description");
-    if (metaDesc && data.metaDescription) {
-      metaDesc.setAttribute("content", data.metaDescription);
-    }
-
-    // Оновлення Schema BreadcrumbList
-    const schemaBreadcrumb = document.getElementById("schema-breadcrumb");
-    if (schemaBreadcrumb) {
-      schemaBreadcrumb.textContent = JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Головна", "item": "https://lighton.pp.ua/" },
-          { "@type": "ListItem", "position": 2, "name": "Каталог", "item": "https://lighton.pp.ua/catalog.html" },
-          { "@type": "ListItem", "position": 3, "name": data.categoryLabel, "item": `https://lighton.pp.ua/catalog.html#${categoryId}` }
-        ]
-      });
-    }
-
-    // Оновлення Schema CollectionPage з товарами
-    const schemaCollection = document.getElementById("schema-collection");
-    if (schemaCollection && data.items) {
-      schemaCollection.textContent = JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "CollectionPage",
-        "name": data.metaTitle,
-        "description": data.metaDescription || "",
-        "url": `https://lighton.pp.ua/catalog.html#${categoryId}`,
-        "publisher": {
-          "@type": "Organization",
-          "name": "LightOn",
-          "url": "https://lighton.pp.ua"
-        },
-        "hasPart": data.items.map(item => ({
-          "@type": "Product",
-          "name": `${item.brand} ${item.model}`,
-          "url": `https://lighton.pp.ua/products/${categoryId}/${item.slug}.html`,
-          "offers": item.priceUAH ? {
-            "@type": "Offer",
-            "price": item.priceUAH,
-            "priceCurrency": "UAH",
-            "availability": "https://schema.org/InStock"
-          } : undefined
-        }))
-      });
-    }
 
     const renderItems = (items) => {
       container.innerHTML = items.length
@@ -241,13 +196,19 @@ async function renderCatalogPage() {
 
     renderItems(data.items);
 
+    // Шукаємо searchInput після того як DOM вже стабільний,
+    // а не на початку функції — це виключає проблему з відірваним елементом
+    const searchInput = document.getElementById("catalog-search");
     if (searchInput) {
-      const newSearchInput = searchInput.cloneNode(true);
-      searchInput.parentNode.replaceChild(newSearchInput, searchInput);
-      newSearchInput.addEventListener("input", () => {
-        renderItems(filterProducts(data.items, newSearchInput.value));
+      // Скидаємо попередній listener через заміну клону
+      const freshInput = searchInput.cloneNode(true);
+      searchInput.replaceWith(freshInput); // replaceWith безпечніший ніж parentNode.replaceChild
+
+      freshInput.addEventListener("input", () => {
+        renderItems(filterProducts(data.items, freshInput.value));
       });
     }
+
   } catch (e) {
     container.innerHTML = `<p>❌ Помилка: ${e.message}</p>`;
   }

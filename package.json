@@ -4,7 +4,6 @@
   "description": "LightOn — каталог енергетичного обладнання. Парсер товарів.",
   "private": true,
   "scripts": {
-    "generate": "node generate-product-pages.js",
     "parse": "node scripts/parse-product.js",
     "help":  "node scripts/parse-product.js"
   },
