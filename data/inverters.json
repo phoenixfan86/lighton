@@ -280,6 +280,58 @@
       "outputVoltage": "чиста синусоїда",
       "waveform": "чиста синусоїда",
       "efficiency": 90
+    },
+    {
+      "slug": "dcac-mexxsun-mxspsw1000-12v220v",
+      "brand": "Mexxsun",
+      "model": "Перетворювач (інвертор) DC-AC Mexxsun MXSPSW-1000, 12V/220V",
+      "image": "https://hotline.ua/img/tx/566/5664370715.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/566/5664370715.jpg",
+        "https://hotline.ua/img/tx/566/5664370725.jpg",
+        "https://hotline.ua/img/tx/566/5664370735.jpg"
+      ],
+      "priceUAH": 7999,
+      "rating": 0,
+      "description": "Це високоефективний перетворювач напруги номінальною потужністю 1000 Вт, який генерує чисту синусоїду, гарантуючи стабільну та безпечну роботу найвибагливішої побутової техніки, включно з циркуляційними насосами, газовими котлами та чутливою аудіо-відео апаратурою. Маючи здатність короткочасно витримувати пікові навантаження до 2000 Вт, пристрій легко впорається з пусковими струмами холодильників та електроінструменту, а вбудована система інтелектуального охолодження і багаторівневий захист від",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/auto-preobrazovateli-napryazheniya/mexxsun-mxspsw-1000/"
+        }
+      ],
+      "repairLinks": [],
+      "powerW": 1000,
+      "inputVoltage": "Акумулятор автомобіля (клеми)",
+      "outputVoltage": "чиста синусоїда",
+      "waveform": "чиста синусоїда",
+      "efficiency": 90
+    },
+    {
+      "slug": "dcac-ecoflow-alternator-charger-800w-efalternatorchargereu",
+      "brand": "EcoFlow",
+      "model": "Перетворювач DC-AC EcoFlow Alternator Charger 800W (EFAlternatorCharger-EU)",
+      "image": "https://hotline.ua/img/tx/522/5227573755.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/522/5227573755.jpg",
+        "https://hotline.ua/img/tx/522/5227573765.jpg",
+        "https://hotline.ua/img/tx/522/5227573775.jpg"
+      ],
+      "priceUAH": 16999,
+      "rating": 0,
+      "description": "Зарядний пристрій EcoFlow Alternator Charger 800W - це революційне рішення для тих, хто не хоче залежати від розеток у довгих поїздках, що дає змогу заряджати портативні електростанції серії Delta прямо під час руху з вражаючою потужністю 800 Вт, що майже у 8 разів перевищує швидкість заряджання через стандартний прикурювач. Цей інтелектуальний пристрій \"3-в-1\" не тільки швидко поповнює енергію вашої станції, а й здатний підтримувати акумулятор автомобіля в тонусі або навіть працювати в режимі з",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/auto-preobrazovateli-napryazheniya/ecoflow-alternator-charger-800w-efalternatorcharger-eu/"
+        }
+      ],
+      "repairLinks": [],
+      "powerW": 800,
+      "inputVoltage": "Акумулятор",
+      "outputVoltage": "чиста синусоїда",
+      "waveform": "чиста синусоїда",
+      "efficiency": "-"
     }
   ]
 }
