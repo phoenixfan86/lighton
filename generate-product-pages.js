@@ -127,6 +127,93 @@ function getImageGallery(product) {
   `;
 }
 
+// Schema.org Product розмітка
+function getProductSchema(product, category, canonicalUrl, productTitle, categoryName) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": productTitle,
+    "description": product.description?.substring(0, 500) || `${productTitle} — ${categoryName}`,
+    "url": canonicalUrl,
+    "brand": {
+      "@type": "Brand",
+      "name": product.brand
+    }
+  };
+
+  if (product.image) {
+    schema.image = [product.image];
+    if (product.images?.length) schema.image.push(...product.images);
+  }
+
+  if (product.priceUAH) {
+    schema.offers = {
+      "@type": "Offer",
+      "price": product.priceUAH,
+      "priceCurrency": "UAH",
+      "availability": "https://schema.org/InStock",
+      "url": canonicalUrl
+    };
+  }
+
+  if (product.rating) {
+    schema.aggregateRating = {
+      "@type": "AggregateRating",
+      "ratingValue": product.rating,
+      "bestRating": 5,
+      "worstRating": 1,
+      "ratingCount": 1
+    };
+  }
+
+  // Додаємо специфічні характеристики як additionalProperty
+  const props = [];
+  switch (category) {
+    case "generators":
+      if (product.powerKW)   props.push(["Потужність", `${product.powerKW} кВт`]);
+      if (product.fuelType)  props.push(["Тип палива", product.fuelType]);
+      if (product.fuelTankL) props.push(["Об'єм бака", `${product.fuelTankL} л`]);
+      if (product.noiseDb)   props.push(["Рівень шуму", `${product.noiseDb} дБ`]);
+      if (product.startType) props.push(["Тип запуску", product.startType]);
+      if (product.runtimeH)  props.push(["Час роботи", `${product.runtimeH} год`]);
+      break;
+    case "inverters":
+      if (product.powerW)       props.push(["Потужність", `${product.powerW} Вт`]);
+      if (product.waveform)     props.push(["Форма сигналу", product.waveform]);
+      if (product.inputVoltage) props.push(["Вхідна напруга", product.inputVoltage]);
+      if (product.efficiency)   props.push(["ККД", `${product.efficiency}%`]);
+      break;
+    case "solar-panels":
+      if (product.powerWp)       props.push(["Потужність", `${product.powerWp} Вт`]);
+      if (product.cellType)      props.push(["Тип комірок", product.cellType]);
+      if (product.efficiency)    props.push(["Ефективність", `${product.efficiency}%`]);
+      if (product.warrantyYears) props.push(["Гарантія", `${product.warrantyYears} років`]);
+      break;
+    case "batteries":
+      if (product.capacityAh) props.push(["Ємність", `${product.capacityAh} Аг`]);
+      if (product.voltageV)   props.push(["Напруга", `${product.voltageV} В`]);
+      if (product.chemistry)  props.push(["Тип", product.chemistry]);
+      if (product.cyclesCount)props.push(["Циклів заряду", `${product.cyclesCount}`]);
+      break;
+    case "power-stations":
+      if (product.capacityWh)    props.push(["Ємність", `${product.capacityWh} Вт·год`]);
+      if (product.acOutputW)     props.push(["AC вихід", `${product.acOutputW} Вт`]);
+      if (product.solarInputW)   props.push(["Сонячний вхід", `${product.solarInputW} Вт`]);
+      if (product.chargingTimeH) props.push(["Час зарядки", `${product.chargingTimeH} год`]);
+      break;
+  }
+
+  if (props.length) {
+    schema.additionalProperty = props.map(([name, value]) => ({
+      "@type": "PropertyValue",
+      "name": name,
+      "value": value
+    }));
+  }
+
+  return `<script type="application/ld+json">${JSON.stringify(schema, null, 2)}<\/script>`;
+}
+
 // Функція для отримання схожих товарів
 function getRelatedProductsHtml(currentProduct, categoryId, allProducts) {
   const sameBrandProducts = allProducts.filter(item => 
@@ -157,6 +244,23 @@ function getRelatedProductsHtml(currentProduct, categoryId, allProducts) {
         ${relatedProducts.map(item => renderProductCardStatic(item, categoryId)).join('')}
       </div>
     </div>
+  `;
+}
+
+// Функція для генерації noscript блоку з посиланнями (для SEO краулерів)
+function getNoscriptLinksHtml(currentProduct, categoryId, allProducts, categoryName) {
+  const otherProducts = allProducts.filter(item => item.slug !== currentProduct.slug);
+  
+  if (otherProducts.length === 0) return '';
+  
+  return `
+    <noscript>
+      <nav aria-label="Інші товари категорії ${categoryName}">
+        <ul>
+          ${otherProducts.map(item => `<li><a href="../../products/${categoryId}/${item.slug}.html">${escapeHtml(getProductTitle(item))}</a></li>`).join('\n          ')}
+        </ul>
+      </nav>
+    </noscript>
   `;
 }
 
@@ -261,7 +365,10 @@ async function generateProductPages() {
           const specsHtml = getFullSpecsHtml(product, category);
           const imageGallery = getImageGallery(product);
           const relatedProductsHtml = getRelatedProductsHtml(product, category, allProducts);
+          const noscriptLinksHtml = getNoscriptLinksHtml(product, category, allProducts, categoryName);
           const canonicalUrl = `${baseUrl}/products/${category}/${product.slug}.html`;
+          const productSchemaHtml = getProductSchema(product, category, canonicalUrl, productTitle, categoryName);
+          
           
           const html = `<!DOCTYPE html>
 <html lang="uk">
@@ -273,6 +380,7 @@ async function generateProductPages() {
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="${canonicalUrl}" />
   <link rel="stylesheet" href="../../assets/css/style.css" />
+  ${productSchemaHtml}
 </head>
 <body data-page="product-static">
 
@@ -317,6 +425,7 @@ async function generateProductPages() {
       <div id="product-seo-text" style="margin-top:3rem;max-width:820px;">
         <p><strong>${escapeHtml(productTitle)}</strong> — це надійне обладнання для вашого дому або бізнесу. Ознайомтеся з характеристиками, порівняйте ціни та виберіть найкращу пропозицію.</p>
       </div>
+      ${noscriptLinksHtml}
     </div>
   </main>
 

@@ -47,9 +47,7 @@ a {
 	color: var(--color-primary-dark);
 	text-decoration: none;
 }
-a:hover {
-	text-shadow: 1px 1px 5px var(--color-primary);
-}
+
 img {
 	max-width: 100%;
 	height: auto;
@@ -96,6 +94,10 @@ ul {
 }
 .site-logo span {
 	color: var(--color-primary);
+}
+
+.site-logo:hover {
+	text-shadow: 1px 1px 5px var(--color-primary);
 }
 
 /* Навігація */
@@ -593,6 +595,10 @@ ul {
 
 	.product-price {
 		font-size: 1.5rem;
+	}
+
+	.gallery-item {
+		width: 300px;
 	}
 
 	.main-image {
