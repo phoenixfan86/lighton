@@ -111,10 +111,10 @@ function renderProductCard(item, category) {
         <img class="product-card__img" src="${imgSrc}" alt="${item.brand} ${item.model}" onerror="this.src='assets/img/placeholder.svg'" loading="lazy">
         <div class="product-card__body">
           <div class="product-card__brand">${escapeHtml(item.brand)}</div>
-          <div class="product-card__title">${escapeHtml(item.model)}</div>
+          <div class="product-card__title">${escapeHtml(item.model)}</div>          
           <p class="product-card__desc">${escapeHtml(item.description?.substring(0, 150) || '')}...</p>
           <div class="product-card__specs">${specs.map(s => `<span>${s}</span>`).join("")}</div>
-          <div class="product-card__price">${formatPrice(item.priceUAH)}</div>
+          <div class="product-card__price">від ${formatPrice(item.priceUAH)}</div>
         </div>
       </a>
       <div class="product-card__footer">

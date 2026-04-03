@@ -434,6 +434,62 @@
       "startType": "ручний старт",
       "runtimeH": 10.7,
       "weightKg": 42
+    },
+    {
+      "slug": "volteno-vo2865",
+      "brand": "Volteno",
+      "model": "Бензиновий генератор Volteno VO2865",
+      "image": "https://hotline.ua/img/tx/504/5046090395.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/504/5046090395.jpg",
+        "https://hotline.ua/img/tx/504/5046090405.jpg",
+        "https://hotline.ua/img/tx/504/5046090415.jpg"
+      ],
+      "priceUAH": 17553,
+      "rating": 0,
+      "description": "Volteno VO2865 — бензиновий однофазний генератор для резервного живлення та роботи з інструментом у місцях без мережі. Номінальна потужність становить 5 кВт, максимальна — 5,5 кВт, вихідна напруга 230 В. Генератор оснащений синхронним альтернатором із мідною обмоткою та автоматичним регулятором напруги AVR, що зменшує просідання і коливання напруги при зміні навантаження. Для підключення споживачів передбачено 2 розетки 230 В на 16 А, а також вихід 12 В через клеми для заряджання акумулятора або",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/dacha_sad-generatory/volteno-vo2865/"
+        }
+      ],
+      "repairLinks": [],
+      "powerKW": 5.5,
+      "fuelType": "бензин неетилований",
+      "fuelTankL": 25,
+      "noiseDb": 97,
+      "engineBrand": "4-тактний, 1-циліндровий OHV",
+      "startType": "ручний + електричний (комбі)",
+      "runtimeH": 11,
+      "weightKg": 81
+    },
+    {
+      "slug": "forte-fgd4000-130539",
+      "brand": "Forte",
+      "model": "Дизельний генератор Forte FGD4000 (130539)",
+      "image": "https://hotline.ua/img/tx/418/4187944135.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/418/4187944135.jpg"
+      ],
+      "priceUAH": 31290,
+      "rating": 0,
+      "description": "",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/dacha_sad-generatory/forte-fgd4000-130539/"
+        }
+      ],
+      "repairLinks": [],
+      "powerKW": 3.3,
+      "fuelType": "дизельне паливо",
+      "fuelTankL": 12.5,
+      "engineBrand": "4-тактний, 1-циліндровий",
+      "startType": "ручний старт",
+      "runtimeH": "-",
+      "weightKg": 70,
+      "noiseDb": "-"
     }
   ]
 }
