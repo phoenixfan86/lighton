@@ -3,5 +3,6 @@ node_modules/
 scripts/
 logs/
 generate-product-pages.js
+.product-hashes.json
 .DS_Store
 *.log

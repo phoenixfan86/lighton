@@ -407,6 +407,33 @@
       "startType": "зі смартфона / автоматичний старт / електричний старт / ручний старт",
       "runtimeH": 3.5,
       "weightKg": 28.5
+    },
+    {
+      "slug": "einhell-tcpg-35e5-4152551",
+      "brand": "Einhell",
+      "model": "Бензиновий генератор Einhell TC-PG 35/E5 (4152551)",
+      "image": "https://hotline.ua/img/tx/483/4833695825.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/483/4833695825.jpg"
+      ],
+      "priceUAH": 14670,
+      "rating": 0,
+      "description": "",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/dacha_sad-generatory/einhell-tc-pg-35e5-4152551/"
+        }
+      ],
+      "repairLinks": [],
+      "powerKW": 3.1,
+      "fuelType": "бензин АІ-92",
+      "fuelTankL": 15,
+      "noiseDb": 96,
+      "engineBrand": "4-х тактний 1-циліндровий",
+      "startType": "ручний старт",
+      "runtimeH": 10.7,
+      "weightKg": 42
     }
   ]
 }
