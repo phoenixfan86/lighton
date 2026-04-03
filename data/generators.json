@@ -378,6 +378,35 @@
       "startType": "ручний старт",
       "runtimeH": 3,
       "weightKg": 25
+    },
+    {
+      "slug": "ecoflow-smart-generator-gasebeu",
+      "brand": "EcoFlow",
+      "model": "Інверторний бензиновий генератор EcoFlow Smart Generator (GasEB-EU)",
+      "image": "https://hotline.ua/img/tx/351/3516073735.jpg",
+      "images": [
+        "https://hotline.ua/img/tx/351/3516073735.jpg",
+        "https://hotline.ua/img/tx/351/3516073745.jpg",
+        "https://hotline.ua/img/tx/351/3516073755.jpg"
+      ],
+      "priceUAH": 85000,
+      "rating": 0,
+      "description": "",
+      "buyLinks": [
+        {
+          "name": "Hotline.ua",
+          "url": "https://hotline.ua/ua/dacha_sad-generatory/ecoflow-smart-generator-gaseb-eu/"
+        }
+      ],
+      "repairLinks": [],
+      "powerKW": 1.9,
+      "fuelType": "бензин Аі-95",
+      "fuelTankL": 4,
+      "noiseDb": 67,
+      "engineBrand": "4-х тактний 1-циліндровий OHV",
+      "startType": "зі смартфона / автоматичний старт / електричний старт / ручний старт",
+      "runtimeH": 3.5,
+      "weightKg": 28.5
     }
   ]
 }
