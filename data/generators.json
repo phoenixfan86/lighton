@@ -481,7 +481,9 @@
           "url": "https://hotline.ua/ua/dacha_sad-generatory/forte-fgd4000-130539/"
         }
       ],
-      "repairLinks": [],
+      "repairLinks": [
+        "/article.html#generators/yak-pravylno-nastroyty-dyzelnuy-generator"
+      ],
       "powerKW": 3.3,
       "fuelType": "дизельне паливо",
       "fuelTankL": 12.5,

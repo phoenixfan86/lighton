@@ -184,7 +184,7 @@ ul {
 
 /* ── КАТЕГОРІЇ (сітка карток) ─────────────────────────────── */
 .section {
-	padding: 3rem 0;
+	padding: 1rem 0;
 }
 .section-title {
 	font-size: 1.6rem;
@@ -350,7 +350,7 @@ ul {
 	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 	align-items: center;
 	gap: 1rem;
-	margin-bottom: 2rem;
+	margin-bottom: 1rem;
 }
 
 .gallery-item {
@@ -564,7 +564,7 @@ ul {
 	display: inline-flex;
 	align-items: center;
 	gap: 0.5rem;
-	margin-bottom: 2rem;
+	margin-bottom: 1rem;
 	padding: 0.5rem 1rem;
 	background: var(--color-surface);
 	color: var(--color-text);
@@ -591,8 +591,12 @@ ul {
 }
 
 @media (max-width: 768px) {
+	.back-button {
+		margin-bottom: 0.5rem;
+	}
+
 	.product-info {
-		padding: 1rem;
+		padding: 0.75rem;
 	}
 
 	.specs-grid {
@@ -639,7 +643,6 @@ ul {
 	gap: 1.5rem;
 }
 
-/* Адаптація для мобільних */
 @media (max-width: 768px) {
 	.related-products-grid {
 		grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
